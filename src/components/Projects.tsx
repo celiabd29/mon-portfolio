@@ -30,104 +30,106 @@ export default function Projects() {
 
   return (
     <div className="bg-black text-white flex flex-col items-center justify-center px-4 relative">
-      <h2 className="relative text-6xl md:text-8xl font-bold top-12 text-violet-400 opacity-30 md:top-16">
-        PORTFOLIO
-      </h2>
-      <div className="flex flex-col items-center">
-        <h2 className="text-3xl md:text-5xl tracking-wide font-medium">
-          MES PROJETS
+      <section id="projets">
+        <h2 className="relative text-6xl md:text-8xl font-bold top-12 text-violet-400 opacity-30 md:top-16">
+          PORTFOLIO
         </h2>
-        <div className="border-b-2 border-white w-[9rem] mt-6 mb-10" />
-      </div>
-      {/* Catégories */}
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 mt-10 mb-8">
-        <button
-          onClick={() => setCategory("Développement Web")}
-          className={`px-4 py-2 rounded-full border ${
-            category === "Développement Web" ? "bg-white text-black" : ""
-          }`}
-        >
-          Développement Web
-        </button>
-        <button
-          onClick={() => setCategory("Graphisme & UX/UI")}
-          className={`px-4 py-2 rounded-full border ${
-            category === "Graphisme & UX/UI" ? "bg-white text-black" : ""
-          }`}
-        >
-          Graphisme & UX/UI
-        </button>
-      </div>
-      {/* Carrousel Desktop */}
-      <div className="hidden md:block w-full max-w-6xl max-h-5xl relative">
-        <Swiper
-          modules={[Navigation]}
-          navigation={{
-            nextEl: ".custom-next",
-            prevEl: ".custom-prev",
-          }}
-          className="w-full"
-          spaceBetween={50}
-          slidesPerView={1}
-        >
-          {filteredProjects.map((project, index) => (
-            <SwiperSlide key={index}>
-              <div className="flex items-center h-[480px] bg-[#121212] border border-white rounded-2xl p-6 space-x-10 shadow-lg">
-                {/* Image du projet */}
-                <div className="w-1/2 h-full border border-white rounded-xl overflow-hidden">
-                  <img
-                    src={`http://localhost:4000/uploads/${project.image}`}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Contenu du projet */}
-                <div className="w-1/2 flex flex-col justify-between h-full">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-2 text-white">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-300 text-sm leading-relaxed mb-4">
-                      {project.description}
-                    </p>
+        <div className="flex flex-col items-center">
+          <h2 className="text-3xl md:text-5xl tracking-wide font-medium">
+            MES PROJETS
+          </h2>
+          <div className="border-b-2 border-white w-[9rem] mt-6 mb-10" />
+        </div>
+        {/* Catégories */}
+        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 mt-10 mb-8">
+          <button
+            onClick={() => setCategory("Développement Web")}
+            className={`px-4 py-2 rounded-full border ${
+              category === "Développement Web" ? "bg-white text-black" : ""
+            }`}
+          >
+            Développement Web
+          </button>
+          <button
+            onClick={() => setCategory("Graphisme & UX/UI")}
+            className={`px-4 py-2 rounded-full border ${
+              category === "Graphisme & UX/UI" ? "bg-white text-black" : ""
+            }`}
+          >
+            Graphisme & UX/UI
+          </button>
+        </div>
+        {/* Carrousel Desktop */}
+        <div className="hidden md:block w-full max-w-6xl max-h-5xl relative">
+          <Swiper
+            modules={[Navigation]}
+            navigation={{
+              nextEl: ".custom-next",
+              prevEl: ".custom-prev",
+            }}
+            className="w-full"
+            spaceBetween={50}
+            slidesPerView={1}
+          >
+            {filteredProjects.map((project, index) => (
+              <SwiperSlide key={index}>
+                <div className="flex items-center h-[480px] bg-[#121212] border border-white rounded-2xl p-6 space-x-10 shadow-lg">
+                  {/* Image du projet */}
+                  <div className="w-1/2 h-full border border-white rounded-xl overflow-hidden">
+                    <img
+                      src={`http://localhost:4000/uploads/${project.image}`}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
 
-                  <div>
-                    <p className="text-sm text-violet-300 mb-1 font-semibold">
-                      Technologies utilisées :
-                    </p>
-                    <ul className="list-disc ml-5 text-sm text-white mb-4">
-                      {project.technologies.map((tech, i) => (
-                        <li key={i}>{tech}</li>
-                      ))}
-                    </ul>
+                  {/* Contenu du projet */}
+                  <div className="w-1/2 flex flex-col justify-between h-full">
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2 text-white">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                        {project.description}
+                      </p>
+                    </div>
 
-                    {project.link && (
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block bg-violet-400 text-black px-6 py-2 rounded-full hover:bg-violet-300 transition"
-                      >
-                        En savoir plus
-                      </a>
-                    )}
+                    <div>
+                      <p className="text-sm text-violet-300 mb-1 font-semibold">
+                        Technologies utilisées :
+                      </p>
+                      <ul className="list-disc ml-5 text-sm text-white mb-4">
+                        {project.technologies.map((tech, i) => (
+                          <li key={i}>{tech}</li>
+                        ))}
+                      </ul>
+
+                      {project.link && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block bg-violet-400 text-black px-6 py-2 rounded-full hover:bg-violet-300 transition"
+                        >
+                          En savoir plus
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-        {/* Flèches en dehors */}
-        <div className="custom-prev absolute -left-[6rem] top-1/2 -translate-y-1/2 z-50 cursor-pointer hover:scale-110 transition">
-          <ChevronLeft className="text-white w-16 h-16" />
+          {/* Flèches en dehors */}
+          <div className="custom-prev absolute -left-[6rem] top-1/2 -translate-y-1/2 z-50 cursor-pointer hover:scale-110 transition">
+            <ChevronLeft className="text-white w-16 h-16" />
+          </div>
+          <div className="custom-next absolute -right-[6rem] top-1/2 -translate-y-1/2 z-50 cursor-pointer hover:scale-110 transition">
+            <ChevronRight className="text-white w-16 h-16" />
+          </div>
         </div>
-        <div className="custom-next absolute -right-[6rem] top-1/2 -translate-y-1/2 z-50 cursor-pointer hover:scale-110 transition">
-          <ChevronRight className="text-white w-16 h-16" />
-        </div>
-      </div>
+      </section>
     </div>
   );
 }

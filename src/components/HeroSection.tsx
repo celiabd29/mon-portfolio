@@ -27,10 +27,16 @@ export default function Portfolio() {
       {/* Header */}
       <header className="relative flex items-center justify-center p-6 bg-black fixed w-full z-50">
         <nav className="hidden md:flex flex-1 justify-start gap-10 ml-6">
-          <a href="#" className="text-white font-regular hover:text-gray-300">
+          <a
+            href="#presentation"
+            className="text-white font-regular hover:text-gray-300"
+          >
             PRÉSENTATION
           </a>
-          <a href="#" className="text-white font-regular hover:text-gray-300">
+          <a
+            href="#competences"
+            className="text-white font-regular hover:text-gray-300"
+          >
             COMPÉTENCES
           </a>
         </nav>
@@ -38,13 +44,22 @@ export default function Portfolio() {
           <img src="/logo-couleur.webp" alt="Logo" className="w-auto h-20" />
         </div>
         <nav className="hidden md:flex flex-1 justify-end gap-10 mr-6">
-          <a href="#" className="text-white font-regular hover:text-gray-300">
+          <a
+            href="#projets"
+            className="text-white font-regular hover:text-gray-300"
+          >
             PROJETS
           </a>
-          <a href="#" className="text-white font-regular hover:text-gray-300">
+          <a
+            href="#contact"
+            className="text-white font-regular hover:text-gray-300"
+          >
             CONTACT
           </a>
-          <a href="#" className="text-white font-regular hover:text-gray-300">
+          <a
+            href="/CV_Celia_Abbad.pdf"
+            className="text-white font-regular hover:text-gray-300"
+          >
             CV
           </a>
         </nav>
@@ -59,17 +74,20 @@ export default function Portfolio() {
       {/* Menu */}
       {menuOpen && (
         <nav className="md:hidden absolute top-30 left-0 w-full bg-black p-4 flex flex-col gap-4 z-40 items-center text-center">
-          <a href="#" className="text-white text-lg">
+          <a href="#presentation" className="text-white text-lg">
             Présentation
           </a>
-          <a href="#" className="text-white text-lg">
+          <a href="#competences" className="text-white text-lg">
             Compétences
           </a>
-          <a href="#" className="text-white text-lg">
+          <a href="#projets" className="text-white text-lg">
             Projets
           </a>
-          <a href="#" className="text-white text-lg">
+          <a href="#contact" className="text-white text-lg">
             Contact
+          </a>
+          <a href="/CV_Celia_Abbad.pdf" className="text-white text-lg">
+            CV
           </a>
         </nav>
       )}
