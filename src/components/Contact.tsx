@@ -59,7 +59,7 @@ export default function Contact() {
         </p>
         <form
           onSubmit={handleSubmit}
-          className="w-full  md:w-1/2 bg-black md:mb-8 border-2 rounded-[30px] p-6 md:p-[2rem]"
+          className="w-full bg-black md:mb-8 border-2 rounded-[30px] p-6 md:p-[2rem]"
         >
           <label className="text-white font-raleway mt-4 ml-4 text-lg">
             Nom

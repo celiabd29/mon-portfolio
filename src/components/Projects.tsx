@@ -41,7 +41,7 @@ export default function Projects() {
           <div className="border-b-2 border-white w-[9rem] mt-6 mb-10" />
         </div>
         {/* Catégories */}
-        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 mt-10 mb-8">
+        <div className="flex flex-col md:flex-row md:justify-center space-y-4 md:space-y-0 md:space-x-6 mt-10 mb-8">
           <button
             onClick={() => setCategory("Développement Web")}
             className={`px-4 py-2 rounded-full border ${
