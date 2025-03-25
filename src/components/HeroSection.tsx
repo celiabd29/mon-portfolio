@@ -120,7 +120,7 @@ export default function Portfolio() {
         >
           <Github size={24} />
         </a>
-        <a href="src/assets/CV_Celia_Abbad.pdf" className="text-white">
+        <a href="/CV_Celia_Abbad.pdf" className="text-white">
           <Download size={24} />
         </a>
       </div>

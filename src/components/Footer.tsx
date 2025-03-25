@@ -28,7 +28,7 @@ export default function Footer() {
         {/* Logo au centre */}
         <div className="flex justify-center md:ml-[7rem]">
           <img
-            src="src/assets/logo-couleur.webp"
+            src="/logo-couleur.webp"
             alt="Logo"
             className="h-16 w-auto md:h-20"
           />

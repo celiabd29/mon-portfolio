@@ -51,7 +51,7 @@ export default function About() {
           <div className="flex items-center gap-4 mb-10 z-10">
             <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
               <img
-                src="src/assets/icons/bachelor.svg"
+                src="/icons/bachelor.svg"
                 alt="Dev Icon"
                 className="w-8 h-8 text-violet-500"
               />
@@ -68,7 +68,7 @@ export default function About() {
           <div className="flex items-center gap-4 mb-10 z-10">
             <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
               <img
-                src="src/assets/icons/licence.svg"
+                src="/icons/licence.svg"
                 alt="University Icon"
                 className="w-8 h-8 text-violet-500"
               />
@@ -83,7 +83,7 @@ export default function About() {
           <div className="flex items-center gap-4 z-10">
             <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
               <img
-                src="src/assets/icons/diplome.svg"
+                src="/icons/diplome.svg"
                 alt="Graduation Icon"
                 className="w-8 h-8 text-violet-500"
               />
@@ -107,7 +107,7 @@ export default function About() {
             </div>
             <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center z-10 flex-shrink-0">
               <img
-                src="src/assets/icons/bachelor.svg"
+                src="/icons/bachelor.svg"
                 alt="Dev Icon"
                 className="w-14 h-14 text-violet-500"
               />
@@ -129,7 +129,7 @@ export default function About() {
             </div>
             <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center z-10 flex-shrink-0">
               <img
-                src="src/assets/icons/licence.svg"
+                src="/icons/licence.svg"
                 alt="University Icon"
                 className="w-14 h-14 text-violet-500"
               />
@@ -148,7 +148,7 @@ export default function About() {
             </div>
             <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center z-10 flex-shrink-0">
               <img
-                src="src/assets/icons/diplome.svg"
+                src="/icons/diplome.svg"
                 alt="Graduation Icon"
                 className="w-14 h-14 text-violet-500"
               />
