@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Icon } from "@iconify-icon/react";
+import { Icon } from "@iconify/react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
