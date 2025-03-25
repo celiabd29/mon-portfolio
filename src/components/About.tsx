@@ -5,7 +5,7 @@ export default function About() {
     <div className="bg-black text-white flex flex-col items-center justify-center px-4 bottom-30">
       {/* Texte en fond "QUI SUIS-JE ?" */}
       <section id="presentation">
-        <h2 className="relative text-6xl md:text-8xl font-bold top-12 text-violet-400 opacity-30 md:top-16">
+        <h2 className="relative text-center text-6xl md:text-8xl font-bold top-12 text-violet-400 opacity-30 md:top-16">
           QUI SUIS-JE ?
         </h2>
 

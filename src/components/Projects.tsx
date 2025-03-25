@@ -31,7 +31,7 @@ export default function Projects() {
   return (
     <div className="bg-black text-white flex flex-col items-center justify-center px-4 relative">
       <section id="projets">
-        <h2 className="relative text-6xl md:text-8xl font-bold top-12 text-violet-400 opacity-30 md:top-16">
+        <h2 className="relative text-center text-6xl md:text-8xl font-bold top-12 text-violet-400 opacity-30 md:top-16">
           PORTFOLIO
         </h2>
         <div className="flex flex-col items-center">
