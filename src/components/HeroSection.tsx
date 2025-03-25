@@ -9,17 +9,17 @@ export default function Portfolio() {
     <div className="bg-black text-white relative">
       {/* Background Icons as Images */}
       <img
-        src="src/assets/icons/react-brands.svg"
-        alt="React Logo"
+        src="/icons/react-brands.svg"
+        alt="React"
         className="absolute top-28 left-8 w-auto h-30 md:h-[8rem] md:left-2/3 md:top-[7rem]"
       />
       <img
-        src="src/assets/icons/python-brands(1).svg"
+        src="/icons/python-brands(1).svg"
         alt="Python Icon"
         className="absolute top-1/3 right-5 w-auto h-40 md:h-[12rem] md:left-[12rem] md:top-1/3"
       />
       <img
-        src="src/assets/icons/node-brands.svg"
+        src="/icons/node-brands.svg"
         alt="Node Icon"
         className="absolute top-3/4 left-1/4 w-auto h-30 md:h-[6rem] md:left-1/3 md:top-3/4"
       />
@@ -35,11 +35,7 @@ export default function Portfolio() {
           </a>
         </nav>
         <div className="flex justify-center items-center w-full">
-          <img
-            src="src/assets/logo-couleur.webp"
-            alt="Logo"
-            className="w-auto h-20"
-          />
+          <img src="/logo-couleur.webp" alt="Logo" className="w-auto h-20" />
         </div>
         <nav className="hidden md:flex flex-1 justify-end gap-10 mr-6">
           <a href="#" className="text-white font-regular hover:text-gray-300">

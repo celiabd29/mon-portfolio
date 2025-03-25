@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi"; // Icônes burger et fermeture
-import Logo from "../assets/logo-couleur.webp";
+import { FiMenu, FiX } from "react-icons/fi";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false); // État du menu mobile
@@ -9,7 +8,7 @@ const Header = () => {
     <header className="fixed top-4 left-0 w-full bg-black text-white flex items-center px-6 py-6 z-50">
       {/* Logo */}
       <div className="relative w-full flex justify-center right-[10px]">
-        <img src={Logo} alt="Logo" className="h-12 w-auto" />
+        <img src="/logo-couleur.webp" alt="Logo" className="h-12 w-auto" />
       </div>
 
       {/* Menu Burger */}
