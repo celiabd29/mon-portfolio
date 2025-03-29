@@ -4,6 +4,7 @@ import PrivacyPolicy from "./pages/Politique";
 import LegalNotices from "./pages/Mentions";
 import AdminAddProject from "./pages/AdminAddProject";
 import AdminAddSkill from "./pages/AdminAddSkill";
+import AdminMessage from "./pages/AdminMessage";
 import Projects from "./components/Projects";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -21,6 +22,7 @@ function App() {
         <Route path="/mentions-legales" element={<LegalNotices />} />
         <Route path="/admin/projet" element={<AdminAddProject />} />
         <Route path="/admin/skill" element={<AdminAddSkill />} />
+        <Route path="/admin/message" element={<AdminMessage />} />
         <Route path="/projets" element={<Projects />} />
       </Routes>
     </Router>
