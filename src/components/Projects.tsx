@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
@@ -32,7 +32,7 @@ export default function Projects() {
   return (
     <div className="bg-black text-white flex flex-col items-center justify-center px-4 relative">
       <section id="projets">
-        <h2 className="relative text-center text-6xl md:text-8xl font-bold top-12 text-violet-400 opacity-30 md:top-16">
+        <h2 className="relative text-center text-5xl md:text-8xl font-bold top-12 text-violet-400 opacity-30 md:top-16">
           PORTFOLIO
         </h2>
         <div className="flex flex-col items-center">
@@ -42,7 +42,26 @@ export default function Projects() {
           <div className="border-b-2 border-white w-[9rem] mt-6 mb-10" />
         </div>
         {/* Catégories */}
-        <div className="flex flex-col md:flex-row md:justify-center space-y-4 md:space-y-0 md:space-x-6 mt-10 mb-8">
+        <div className="flex flex-col md:flex-row justify-center items-center text-white bg-black py-10">
+          <div className="flex flex-col space-y-4 md:mr-10">
+            <button
+              className={`px-4 py-2 rounded-full border ${
+                category === "Développement Web" ? "bg-white text-black" : ""
+              }`}
+              onClick={() => setCategory("Développement Web")}
+            >
+              Développement Web
+            </button>
+            <button
+              className={`px-4 py-2 rounded-full border ${
+                category === "Graphisme & UX/UI" ? "bg-white text-black" : ""
+              }`}
+              onClick={() => setCategory("Graphisme & UX/UI")}
+            >
+              Graphisme & UX/UI
+            </button>
+          </div>
+          {/* <div className="flex flex-col md:flex-row md:justify-center space-y-4 md:space-y-0 md:space-x-6 mt-10 mb-8">
           <button
             onClick={() => setCategory("Développement Web")}
             className={`px-4 py-2 rounded-full border ${
@@ -58,7 +77,7 @@ export default function Projects() {
             }`}
           >
             Graphisme & UX/UI
-          </button>
+          </button>*/}
         </div>
         {/* Carrousel Desktop */}
         <div className="hidden md:block w-full max-w-6xl max-h-5xl relative">
@@ -130,84 +149,84 @@ export default function Projects() {
             <ChevronRight className="text-white w-16 h-16" />
           </div>
         </div>
-        {/* Version Mobile */}
-        <div className="md:hidden w-full">
-          {filteredProjects.map((project, index) => (
-            <div
-              key={index}
-              className="bg-[#121212] border border-white rounded-2xl p-4 mb-10 shadow-lg flex flex-col items-center"
+
+        {/* Version Mobile : Carrousel Swiper */}
+        <div className="flex flex-col justify-center items-center text-white bg-black py-10">
+          <div className="md:hidden w-full relative max-w-md mx-auto">
+            <Swiper
+              modules={[Navigation]}
+              navigation={{
+                nextEl: ".custom-next-mobile",
+                prevEl: ".custom-prev-mobile",
+              }}
+              spaceBetween={20}
+              slidesPerView={1}
+              className="w-full"
             >
-              {/* Image */}
-              <div className="w-full rounded-xl overflow-hidden mb-4">
-                <img
-                  src={`http://localhost:4000/uploads/${project.image}`}
-                  alt={project.title}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
+              {filteredProjects.map((project, index) => (
+                <SwiperSlide key={index}>
+                  <div className="bg-[#121212] border border-white rounded-2xl p-4 shadow-lg flex flex-col items-center">
+                    {/* Image */}
+                    <div className="w-full h-[200px] border border-white rounded-xl overflow-hidden mb-5">
+                      <img
+                        src={`http://localhost:4000/uploads/${project.image}`}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
 
-              {/* Titre */}
-              <h3 className="text-lg font-bold mb-1 text-white text-center">
-                {project.title}
-              </h3>
+                    {/* Titre */}
+                    <h3 className="text-lg font-bold text-white text-center mb-1">
+                      {project.title}
+                    </h3>
 
-              {/* Sous-titre */}
-              <p className="text-sm text-gray-300 mb-2 text-center">
-                {project.subtitle ||
-                  "Un site e-commerce dédié aux cosmétiques naturels"}
-              </p>
+                    {/* Sous-titre ou résumé */}
+                    <p className="text-gray-300 text-sm text-center mb-4">
+                      {project.subtitle ||
+                        "Un site e-commerce dédié aux cosmétiques naturels"}
+                    </p>
 
-              {/* Description déroulante */}
-              <div className="w-full text-left mb-3">
-                <button
-                  onClick={() =>
-                    setOpenDescriptionIndex(
-                      openDescriptionIndex === index ? null : index
-                    )
-                  }
-                  className="text-white font-semibold flex items-center space-x-2"
-                >
-                  <span>Description</span>
-                  <span
-                    className={`transform transition ${
-                      openDescriptionIndex === index ? "rotate-180" : ""
-                    }`}
-                  >
-                    ▼
-                  </span>
-                </button>
-                {openDescriptionIndex === index && (
-                  <p className="text-sm text-gray-300 mt-2">
-                    {project.description}
-                  </p>
-                )}
-              </div>
+                    {/* Description */}
+                    <div className="text-sm text-gray-300 text-justify mb-5 px-1">
+                      {project.description}
+                    </div>
 
-              {/* Technologies */}
-              <div className="w-full text-sm text-white mb-3">
-                <p className="text-violet-300 font-semibold">
-                  Technologies utilisées :
-                </p>
-                <ul className="list-disc list-inside">
-                  {project.technologies.map((tech, i) => (
-                    <li key={i}>{tech}</li>
-                  ))}
-                </ul>
-              </div>
+                    {/* Technologies */}
+                    <div className="w-full text-sm text-white mb-5">
+                      <p className="text-violet-300 font-semibold mb-1">
+                        Technologies utilisées :
+                      </p>
+                      <ul className="list-disc list-inside">
+                        {project.technologies.map((tech, i) => (
+                          <li key={i}>{tech}</li>
+                        ))}
+                      </ul>
+                    </div>
 
-              {/* Bouton lien */}
-              {project.link && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-violet-400 text-black text-sm font-semibold px-5 py-2 rounded-full hover:bg-violet-300 transition"
-                >
-                  En savoir plus
-                </a>
-              )}
+                    {/* Bouton */}
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-violet-400 text-black font-semibold text-sm px-6 py-2 rounded-full hover:bg-violet-300 transition"
+                      >
+                        En savoir plus
+                      </a>
+                    )}
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            {/* Flèches mobile */}
+            <div className="custom-prev-mobile absolute left-2 top-1/2 -translate-y-1/2 z-50 cursor-pointer hover:scale-110 transition">
+              <ChevronLeft className="text-white w-7 h-7" />
             </div>
-          ))}
+            <div className="custom-next-mobile absolute right-2 top-1/2 -translate-y-1/2 z-50 cursor-pointer hover:scale-110 transition">
+              <ChevronRight className="text-white w-7 h-7" />
+            </div>
+          </div>
         </div>
       </section>
     </div>

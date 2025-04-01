@@ -15,7 +15,7 @@ export default function Skills() {
     <div className="bg-black text-white flex flex-col items-center justify-center px-4 bottom-30">
       {/* Texte en fond "COMPÉTENCES" */}
       <section id="competences">
-        <h2 className="relative text-center text-6xl md:text-8xl font-bold top-12 text-violet-400 opacity-30 md:top-16">
+        <h2 className="relative text-center text-5xl md:text-8xl font-bold top-12 text-violet-400 opacity-30 md:top-16">
           COMPÉTENCES
         </h2>
 
@@ -47,7 +47,7 @@ export default function Skills() {
             </button>
           </div>
           <span className="hidden md:block h-[10rem] border-l border-gray-400"></span>
-          <div className="grid grid-cols-6 gap-6 ml-6">
+          <div className="grid grid-cols-4 md:grid-cols-6 gap-6 mt-8 place-items-center">
             {skills
               .filter((skill) => skill.category === category)
               .map((skill, index) => (
