@@ -8,6 +8,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 export default function Projects() {
   const [projects, setProjects] = useState([]);
   const [category, setCategory] = useState("Développement Web");
+  const [openDescriptionIndex, setOpenDescriptionIndex] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:4000/projects")
@@ -131,82 +132,82 @@ export default function Projects() {
         </div>
         {/* Version Mobile */}
         <div className="md:hidden w-full">
-          {filteredProjects.map((project, index) => {
-            const [showDescription, setShowDescription] = useState(false);
+          {filteredProjects.map((project, index) => (
+            <div
+              key={index}
+              className="bg-[#121212] border border-white rounded-2xl p-4 mb-10 shadow-lg flex flex-col items-center"
+            >
+              {/* Image */}
+              <div className="w-full rounded-xl overflow-hidden mb-4">
+                <img
+                  src={`http://localhost:4000/uploads/${project.image}`}
+                  alt={project.title}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
 
-            return (
-              <div
-                key={index}
-                className="bg-[#121212] border border-white rounded-2xl p-4 mb-10 shadow-lg flex flex-col items-center"
-              >
-                {/* Image */}
-                <div className="w-full rounded-xl overflow-hidden mb-4">
-                  <img
-                    src={`http://localhost:4000/uploads/${project.image}`}
-                    alt={project.title}
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
+              {/* Titre */}
+              <h3 className="text-lg font-bold mb-1 text-white text-center">
+                {project.title}
+              </h3>
 
-                {/* Titre */}
-                <h3 className="text-lg font-bold mb-1 text-white text-center">
-                  {project.title}
-                </h3>
+              {/* Sous-titre */}
+              <p className="text-sm text-gray-300 mb-2 text-center">
+                {project.subtitle ||
+                  "Un site e-commerce dédié aux cosmétiques naturels"}
+              </p>
 
-                {/* Sous-titre */}
-                <p className="text-sm text-gray-300 mb-2 text-center">
-                  {project.subtitle ||
-                    "Un site e-commerce dédié aux cosmétiques naturels"}
-                </p>
-
-                {/* Description déroulante */}
-                <div className="w-full text-left mb-3">
-                  <button
-                    onClick={() => setShowDescription(!showDescription)}
-                    className="text-white font-semibold flex items-center space-x-2"
+              {/* Description déroulante */}
+              <div className="w-full text-left mb-3">
+                <button
+                  onClick={() =>
+                    setOpenDescriptionIndex(
+                      openDescriptionIndex === index ? null : index
+                    )
+                  }
+                  className="text-white font-semibold flex items-center space-x-2"
+                >
+                  <span>Description</span>
+                  <span
+                    className={`transform transition ${
+                      openDescriptionIndex === index ? "rotate-180" : ""
+                    }`}
                   >
-                    <span>Description</span>
-                    <span
-                      className={`transform transition ${
-                        showDescription ? "rotate-180" : ""
-                      }`}
-                    >
-                      ▼
-                    </span>
-                  </button>
-                  {showDescription && (
-                    <p className="text-sm text-gray-300 mt-2">
-                      {project.description}
-                    </p>
-                  )}
-                </div>
-
-                {/* Technologies */}
-                <div className="w-full text-sm text-white mb-3">
-                  <p className="text-violet-300 font-semibold">
-                    Technologies utilisées :
+                    ▼
+                  </span>
+                </button>
+                {openDescriptionIndex === index && (
+                  <p className="text-sm text-gray-300 mt-2">
+                    {project.description}
                   </p>
-                  <ul className="list-disc list-inside">
-                    {project.technologies.map((tech, i) => (
-                      <li key={i}>{tech}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Bouton lien */}
-                {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-violet-400 text-black text-sm font-semibold px-5 py-2 rounded-full hover:bg-violet-300 transition"
-                  >
-                    En savoir plus
-                  </a>
                 )}
               </div>
-            );
-          })}
+
+              {/* Technologies */}
+              <div className="w-full text-sm text-white mb-3">
+                <p className="text-violet-300 font-semibold">
+                  Technologies utilisées :
+                </p>
+                <ul className="list-disc list-inside">
+                  {project.technologies.map((tech, i) => (
+                    <li key={i}>{tech}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Bouton lien */}
+              {project.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-violet-400 text-black text-sm font-semibold px-5 py-2 rounded-full hover:bg-violet-300 transition"
+                >
+                  En savoir plus
+                </a>
+              )}
+            </div>
+          ))}
         </div>
       </section>
     </div>
