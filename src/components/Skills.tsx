@@ -47,7 +47,7 @@ export default function Skills() {
             </button>
           </div>
           <span className="hidden md:block h-[10rem] border-l border-gray-400"></span>
-          <div className="grid grid-cols-4 md:grid-cols-6 gap-6 mt-8 place-items-center">
+          <div className="grid grid-cols-4 mr-4 md:grid-cols-6 gap-6 mt-8 place-items-center">
             {skills
               .filter((skill) => skill.category === category)
               .map((skill, index) => (

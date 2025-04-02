@@ -42,43 +42,25 @@ export default function Projects() {
           <div className="border-b-2 border-white w-[9rem] mt-6 mb-10" />
         </div>
         {/* Catégories */}
-        <div className="flex flex-col md:flex-row justify-center items-center text-white bg-black py-10">
-          <div className="flex flex-col space-y-4 md:mr-10">
-            <button
-              className={`px-4 py-2 rounded-full border ${
-                category === "Développement Web" ? "bg-white text-black" : ""
-              }`}
-              onClick={() => setCategory("Développement Web")}
-            >
-              Développement Web
-            </button>
-            <button
-              className={`px-4 py-2 rounded-full border ${
-                category === "Graphisme & UX/UI" ? "bg-white text-black" : ""
-              }`}
-              onClick={() => setCategory("Graphisme & UX/UI")}
-            >
-              Graphisme & UX/UI
-            </button>
-          </div>
-          {/* <div className="flex flex-col md:flex-row md:justify-center space-y-4 md:space-y-0 md:space-x-6 mt-10 mb-8">
+        <div className="flex flex-col md:flex-row md:justify-center space-y-4 md:space-y-0 md:space-x-6 mt-4 mb-8">
           <button
-            onClick={() => setCategory("Développement Web")}
             className={`px-4 py-2 rounded-full border ${
               category === "Développement Web" ? "bg-white text-black" : ""
             }`}
+            onClick={() => setCategory("Développement Web")}
           >
             Développement Web
           </button>
           <button
-            onClick={() => setCategory("Graphisme & UX/UI")}
             className={`px-4 py-2 rounded-full border ${
               category === "Graphisme & UX/UI" ? "bg-white text-black" : ""
             }`}
+            onClick={() => setCategory("Graphisme & UX/UI")}
           >
             Graphisme & UX/UI
-          </button>*/}
+          </button>
         </div>
+
         {/* Carrousel Desktop */}
         <div className="hidden md:block w-full max-w-6xl max-h-5xl relative">
           <Swiper
@@ -220,10 +202,10 @@ export default function Projects() {
             </Swiper>
 
             {/* Flèches mobile */}
-            <div className="custom-prev-mobile absolute left-2 top-1/2 -translate-y-1/2 z-50 cursor-pointer hover:scale-110 transition">
+            <div className="custom-prev-mobile absolute -left-[2rem] top-1/2 -translate-y-1/2 z-50 cursor-pointer hover:scale-110 transition">
               <ChevronLeft className="text-white w-7 h-7" />
             </div>
-            <div className="custom-next-mobile absolute right-2 top-1/2 -translate-y-1/2 z-50 cursor-pointer hover:scale-110 transition">
+            <div className="custom-next-mobile absolute -right-[2rem] top-1/2 -translate-y-1/2 z-50 cursor-pointer hover:scale-110 transition">
               <ChevronRight className="text-white w-7 h-7" />
             </div>
           </div>
