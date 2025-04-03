@@ -11,13 +11,17 @@ export default function Skills() {
   //     .then((data) => setSkills(data))
   //     .catch((error) => console.error("❌ Erreur :", error));
   // }, []);
+
   useEffect(() => {
+    if (!API_URL) {
+      console.error("❌ VITE_API_URL est undefined !");
+      return;
+    }
+
     fetch(`${API_URL}/skills`)
       .then((res) => res.json())
-      .then((data) => {
-        console.log("Skills récupérées :", data); // 👈 Ici
-        setSkills(data);
-      });
+      .then((data) => setSkills(data))
+      .catch((error) => console.error("❌ Erreur de fetch :", error));
   }, []);
 
   return (
