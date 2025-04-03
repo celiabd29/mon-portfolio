@@ -3,6 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "safelist": [
+    "md:hidden",
+    "md:block",
+    "hidden",
+    "block",
+    "sm:hidden",
+    "sm:block"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
