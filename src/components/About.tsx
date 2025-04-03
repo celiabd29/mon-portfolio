@@ -19,7 +19,7 @@ export default function About() {
 
         {/* Texte de présentation dans la carte */}
         <div className="mt-14 p-6 border border-violet-300 rounded-xl text-center max-w-md md:max-w-4xl">
-          <p className="text-md">
+          <p className="text-sm">
             Je suis Célia Abbad, développeuse web en formation à Digital Campus
             Paris, passionnée par la création de sites modernes, intuitifs et
             performants. Avec une expérience en freelance, j’ai déjà réalisé
@@ -27,14 +27,14 @@ export default function About() {
             point d'honneur à allier design, accessibilité et performance.
           </p>
 
-          <p className="mt-4 text-md">
+          <p className="mt-4 text-sm">
             Actuellement à la recherche d’une alternance à partir de septembre
             2025, je souhaite approfondir mes compétences en développement
             front-end et back-end, en travaillant sur des projets concrets et
             innovants.
           </p>
 
-          <p className="mt-4 text-md">
+          <p className="mt-4 text-sm">
             Ce qui m’anime ? Concevoir des expériences digitales engageantes,
             apprendre continuellement et relever des défis techniques.
           </p>
