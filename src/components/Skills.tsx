@@ -54,7 +54,8 @@ export default function Skills() {
               .map((skill, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <img
-                    src={`${API_URL}/uploads/${skill.image}`}
+                    src={`http://localhost:4000/uploads/${skill.image}`}
+                    // src={`${API_URL}/uploads/${skill.image}`}
                     alt={skill.name}
                     className="w-12 h-12 object-contain"
                   />
