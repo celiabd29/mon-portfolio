@@ -11,6 +11,14 @@ export default function Skills() {
       .then((data) => setSkills(data))
       .catch((error) => console.error("❌ Erreur :", error));
   }, []);
+  useEffect(() => {
+    fetch(`${API_URL}/skills`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Skills récupérées :", data); // 👈 Ici
+        setSkills(data);
+      });
+  }, []);
 
   return (
     <div className="bg-black text-white flex flex-col items-center justify-center px-4 bottom-30">
@@ -54,7 +62,8 @@ export default function Skills() {
               .map((skill, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <img
-                    src={`http://localhost:4000/uploads/${skill.image}`}
+                    // src={`http://localhost:4000/uploads/${skill.image}`}
+                    src={`${API_URL}/uploads/1743204932634-html.webp`}
                     // src={`${API_URL}/uploads/${skill.image}`}
                     alt={skill.name}
                     className="w-12 h-12 object-contain"
