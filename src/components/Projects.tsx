@@ -170,14 +170,8 @@ export default function Projects() {
                       {project.title}
                     </h3>
 
-                    {/* Sous-titre ou résumé */}
-                    <p className="text-gray-300 text-sm text-center mb-4">
-                      {project.subtitle ||
-                        "Un site e-commerce dédié aux cosmétiques naturels"}
-                    </p>
-
                     {/* Description */}
-                    <div className="text-xs leading-relaxed text-gray-100 mb-4">
+                    <div className="text-sm leading-relaxed text-gray-100 mb-4">
                       {project.description}
                     </div>
 
@@ -199,7 +193,7 @@ export default function Projects() {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-violet-400 text-black font-semibold text-sm px-6 py-2 rounded-full hover:bg-violet-300 transition block mx-auto mt-5"
+                        className="bg-violet-400 text-black font-semibold text-sm px-6 py-2 rounded-full hover:bg-violet-300 transition mx-auto block w-fit"
                       >
                         En savoir plus
                       </a>
