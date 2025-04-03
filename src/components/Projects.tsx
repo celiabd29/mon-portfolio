@@ -76,7 +76,9 @@ export default function Projects() {
               prevEl: ".custom-prev",
             }}
             className="w-full"
-            pagination={{ clickable: true }}
+            pagination={{
+              clickable: true,
+            }}
             spaceBetween={50}
             slidesPerView={1}
           >
