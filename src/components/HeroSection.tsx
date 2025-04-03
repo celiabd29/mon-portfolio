@@ -103,7 +103,7 @@ export default function Portfolio() {
           </h2>
         </div>
 
-        <section className="flex flex-col md:flex-row items-center justify-center text-left p-10 md:items-start md:p-20 mt-18 md:mt-10 gap-6 md:gap-12">
+        <section className="flex flex-col md:flex-row items-center justify-center text-left p-6 md:items-start md:p-20 mt-18 md:mt-10 gap-6 md:gap-12">
           {/* Titre */}
           <hr className="w-[4rem] border-t-1 my-2 md:hidden" />
           <h1 className="font-raleway text-xl md:text-2xl font-semibold">
@@ -114,7 +114,7 @@ export default function Portfolio() {
           <span className="hidden md:block h-[10rem] border-l border-gray-400"></span>
 
           {/* Texte */}
-          <p className="font-raleway text-center text-md md:text-lg md:text-start max-w-md md:max-w-lg">
+          <p className="font-raleway text-center text-md md:text-lg md:text-start md:max-w-lg">
             Bienvenue sur mon portfolio ! Étudiante en développement web à
             Digital Campus Paris, je suis passionnée par la conception de sites
             dynamiques et intuitifs. Actuellement à la recherche d’une
