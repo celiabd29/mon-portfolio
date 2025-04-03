@@ -153,9 +153,9 @@ export default function Projects() {
             >
               {filteredProjects.map((project, index) => (
                 <SwiperSlide key={index}>
-                  <div className="bg-[#121212] border border-white rounded-2xl p-4 shadow-lg flex flex-col items-center">
+                  <div className="bg-[#121212] border border-white rounded-2xl px-4 py-5 sm:py-6 shadow-lg flex flex-col items-center">
                     {/* Image */}
-                    <div className="w-full h-[200px] border border-white rounded-xl overflow-hidden mb-5">
+                    <div className="w-full h-[160px] sm:h-[180px] border border-white rounded-xl overflow-hidden mb-5">
                       <img
                         src={`${API_URL}/uploads/${project.image}`}
                         alt={project.title}
@@ -197,7 +197,7 @@ export default function Projects() {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-violet-400 text-black font-semibold text-sm px-6 py-2 rounded-full hover:bg-violet-300 transition"
+                        className="bg-violet-400 text-black font-semibold text-xs sm:text-sm px-4 py-2 rounded-full hover:bg-violet-300 transition"
                       >
                         En savoir plus
                       </a>
