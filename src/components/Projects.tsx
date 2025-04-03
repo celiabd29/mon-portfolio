@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
@@ -70,12 +70,13 @@ export default function Projects() {
         {/* Carrousel Desktop */}
         <div className="hidden md:block w-full max-w-6xl max-h-5xl relative">
           <Swiper
-            modules={[Navigation]}
+            modules={[Navigation, Pagination]}
             navigation={{
               nextEl: ".custom-next",
               prevEl: ".custom-prev",
             }}
             className="w-full"
+            pagination={{ clickable: true }}
             spaceBetween={50}
             slidesPerView={1}
           >
@@ -142,11 +143,12 @@ export default function Projects() {
         <div className="flex flex-col justify-center items-center text-white bg-black py-10">
           <div className="md:hidden w-full relative max-w-md mx-auto">
             <Swiper
-              modules={[Navigation]}
+              modules={[Navigation, Pagination]}
               navigation={{
                 nextEl: ".custom-next-mobile",
                 prevEl: ".custom-prev-mobile",
               }}
+              pagination={{ clickable: true }}
               spaceBetween={20}
               slidesPerView={1}
               className="w-full"
@@ -175,7 +177,7 @@ export default function Projects() {
                     </p>
 
                     {/* Description */}
-                    <div className="text-xs leading-relaxed text-gray-300 text-justify mb-4">
+                    <div className="text-xs leading-relaxed text-gray-100 mb-4">
                       {project.description}
                     </div>
 
@@ -197,7 +199,7 @@ export default function Projects() {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-violet-400 text-black font-semibold text-xs px-4 py-1.5 rounded-full hover:bg-violet-300 transition mx-auto mt-3"
+                        className="bg-violet-400 text-black font-semibold text-sm px-6 py-2 rounded-full hover:bg-violet-300 transition block mx-auto mt-5"
                       >
                         En savoir plus
                       </a>
