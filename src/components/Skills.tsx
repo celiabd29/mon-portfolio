@@ -5,12 +5,12 @@ export default function Skills() {
   const [category, setCategory] = useState("Développement Web");
   const API_URL = import.meta.env.VITE_API_URL;
 
-  useEffect(() => {
-    fetch("http://localhost:4000/skills/")
-      .then((res) => res.json())
-      .then((data) => setSkills(data))
-      .catch((error) => console.error("❌ Erreur :", error));
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:4000/skills/")
+  //     .then((res) => res.json())
+  //     .then((data) => setSkills(data))
+  //     .catch((error) => console.error("❌ Erreur :", error));
+  // }, []);
   useEffect(() => {
     fetch(`${API_URL}/skills`)
       .then((res) => res.json())
