@@ -12,7 +12,12 @@ export default function Projects() {
   const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    fetch("http://localhost:4000/projects")
+    if (!API_URL) {
+      console.error("❌ VITE_API_URL est undefined !");
+      return;
+    }
+
+    fetch(`${API_URL}/projects`)
       .then((res) => res.json())
       .then((data) => {
         const formatted = data.map((p) => ({
@@ -22,7 +27,8 @@ export default function Projects() {
             : p.technologies.split(",").map((t) => t.trim()),
         }));
         setProjects(formatted);
-      });
+      })
+      .catch((error) => console.error("❌ Erreur de fetch Projects :", error));
   }, []);
 
   const filteredProjects = projects.filter(
@@ -79,7 +85,7 @@ export default function Projects() {
                   {/* Image du projet */}
                   <div className="w-1/2 h-full border border-white rounded-xl overflow-hidden">
                     <img
-                      src={`http://localhost:4000/uploads/${project.image}`}
+                      src={`${API_URL}/uploads/${project.image}`}
                       alt={project.title}
                       className="w-full h-full object-cover"
                     />
