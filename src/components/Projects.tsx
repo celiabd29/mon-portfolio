@@ -153,7 +153,7 @@ export default function Projects() {
             >
               {filteredProjects.map((project, index) => (
                 <SwiperSlide key={index}>
-                  <div className="bg-[#121212] border border-white rounded-2xl px-4 py-5 shadow-lg w-[90%] mx-auto">
+                  <div className="bg-[#121212] border border-white rounded-2xl px-3 py-5 shadow-lg w-[87%] mx-auto">
                     {/* Image */}
                     <div className="w-full h-[160px] border border-white rounded-xl overflow-hidden mb-4">
                       <img
@@ -164,7 +164,7 @@ export default function Projects() {
                     </div>
 
                     {/* Titre */}
-                    <h3 className="text-lg font-bold text-white text-center mb-1">
+                    <h3 className="text-base font-bold text-white text-center mb-2">
                       {project.title}
                     </h3>
 
@@ -175,9 +175,9 @@ export default function Projects() {
                     </p>
 
                     {/* Description */}
-                    <p className="text-xs md:text-sm text-gray-300 text-justify leading-relaxed">
+                    <div className="text-xs leading-relaxed text-gray-300 text-justify mb-4">
                       {project.description}
-                    </p>
+                    </div>
 
                     {/* Technologies */}
                     <div className="w-full text-sm text-white mb-5">
@@ -197,7 +197,7 @@ export default function Projects() {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-violet-400 text-black font-semibold text-xs px-5 py-2 rounded-full hover:bg-violet-300 transition mx-auto mt-4"
+                        className="bg-violet-400 text-black font-semibold text-xs px-4 py-1.5 rounded-full hover:bg-violet-300 transition mx-auto mt-3"
                       >
                         En savoir plus
                       </a>
