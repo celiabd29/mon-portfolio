@@ -61,7 +61,7 @@ export default function Contact() {
           onSubmit={handleSubmit}
           className="w-full bg-black md:mb-8 border-2 rounded-[30px] p-6 md:p-[2rem]"
         >
-          <label className="text-white font-raleway mt-4 ml-4 text-lg">
+          <label className="text-white font-raleway mt-4 ml-4 text-md">
             Nom
           </label>
           <div className="relative">
@@ -79,7 +79,7 @@ export default function Contact() {
             />
           </div>
 
-          <label className="text-white font-raleway mt-4 ml-4 text-lg">
+          <label className="text-white font-raleway mt-4 ml-4 text-md">
             Email
           </label>
           <div className="relative">
@@ -97,7 +97,7 @@ export default function Contact() {
             />
           </div>
 
-          <label className="text-white font-raleway mt-4 ml-4 text-lg">
+          <label className="text-white font-raleway mt-4 ml-4 text-md">
             Message
           </label>
           <div className="relative">
