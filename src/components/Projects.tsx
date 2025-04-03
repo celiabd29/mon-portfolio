@@ -142,13 +142,19 @@ export default function Projects() {
         {/* Version Mobile : Carrousel Swiper */}
         <div className="flex flex-col justify-center items-center text-white bg-black py-10">
           <div className="md:hidden w-full relative max-w-md mx-auto">
+            <div className="swiper-pagination-mobile mb-4 flex justify-center space-x-2" />
             <Swiper
               modules={[Navigation, Pagination]}
               navigation={{
                 nextEl: ".custom-next-mobile",
                 prevEl: ".custom-prev-mobile",
               }}
-              pagination={{ clickable: true }}
+              pagination={{
+                clickable: true,
+                el: ".swiper-pagination-mobile",
+                bulletClass: "custom-bullet",
+                bulletActiveClass: "custom-bullet-active",
+              }}
               spaceBetween={20}
               slidesPerView={1}
               className="w-full"
