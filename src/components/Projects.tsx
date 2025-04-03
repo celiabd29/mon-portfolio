@@ -9,12 +9,12 @@ export default function Projects() {
   const [projects, setProjects] = useState([]);
   const [category, setCategory] = useState("Développement Web");
   const [openDescriptionIndex, setOpenDescriptionIndex] = useState(null);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     fetch("http://localhost:4000/projects")
       .then((res) => res.json())
       .then((data) => {
-        // si technologies est une string, on la splitte ici :
         const formatted = data.map((p) => ({
           ...p,
           technologies: Array.isArray(p.technologies)
@@ -151,7 +151,7 @@ export default function Projects() {
                     {/* Image */}
                     <div className="w-full h-[200px] border border-white rounded-xl overflow-hidden mb-5">
                       <img
-                        src={`http://localhost:4000/uploads/${project.image}`}
+                        src={`${API_URL}/uploads/${project.image}`}
                         alt={project.title}
                         className="w-full h-full object-cover"
                       />

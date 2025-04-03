@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 export default function Skills() {
   const [skills, setSkills] = useState([]);
   const [category, setCategory] = useState("Développement Web");
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     fetch("http://localhost:4000/skills/")
@@ -53,7 +54,7 @@ export default function Skills() {
               .map((skill, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <img
-                    src={`http://localhost:4000/uploads/${skill.image}`}
+                    src={`${API_URL}/uploads/${skill.image}`}
                     alt={skill.name}
                     className="w-12 h-12 object-contain"
                   />
