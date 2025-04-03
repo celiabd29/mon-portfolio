@@ -5,13 +5,6 @@ export default function Skills() {
   const [category, setCategory] = useState("Développement Web");
   const API_URL = import.meta.env.VITE_API_URL;
 
-  // useEffect(() => {
-  //   fetch("http://localhost:4000/skills/")
-  //     .then((res) => res.json())
-  //     .then((data) => setSkills(data))
-  //     .catch((error) => console.error("❌ Erreur :", error));
-  // }, []);
-
   useEffect(() => {
     if (!API_URL) {
       console.error("❌ VITE_API_URL est undefined !");
@@ -60,7 +53,7 @@ export default function Skills() {
             </button>
           </div>
           <span className="hidden md:block h-[10rem] border-l border-gray-400"></span>
-          <div className="grid grid-cols-4 mr-4 md:grid-cols-6 gap-6 mt-8 place-items-center">
+          <div className="grid grid-cols-4 md:grid-cols-6 gap-6 mt-8 place-items-center mx-auto md:ml-10">
             {skills
               .filter((skill) => skill.category === category)
               .map((skill, index) => (
