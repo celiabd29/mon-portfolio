@@ -126,7 +126,7 @@ export default function Contact() {
         </form>
       </section>
       {/* Section témoignages */}
-      <section id="testimonials" className="mt-20">
+      <section id="testimonials" className="mt-4 mb-10">
         <h2 className="relative text-center text-[3rem] md:text-8xl font-bold text-violet-400 opacity-30 md:top-16">
           LES AVIS
         </h2>
