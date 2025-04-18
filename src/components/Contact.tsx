@@ -125,6 +125,43 @@ export default function Contact() {
           )}
         </form>
       </section>
+      {/* Section témoignages */}
+      <section id="testimonials" className="mt-20">
+        <h2 className="relative text-center text-[3rem] md:text-8xl font-bold text-violet-400 opacity-30 md:top-16">
+          LES AVIS
+        </h2>
+        <div className="flex flex-col items-center">
+          <h2 className="text-3xl md:text-5xl tracking-wide font-medium text-white">
+            RECOMMANDATIONS
+          </h2>
+          <div className="border-b-2 border-white w-[12rem] mt-6"></div>
+        </div>
+
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-12">
+          <div className="max-w-md border border-white rounded-[30px] p-6 text-white bg-black/50 shadow-lg backdrop-blur-sm">
+            <p className="italic text-md">
+              “Célia s’impose comme une collaboratrice polyvalente. Son
+              investissement total, sa flexibilité entre le front-end et le
+              back-end, et son aptitude à relever des défis techniques en font
+              un véritable couteau suisse du web.”
+            </p>
+            <p className="mt-4 font-bold text-violet-300">
+              — Calypso IMBERT, 10MentionWeb
+            </p>
+
+            <div className="flex justify-center mt-6">
+              <a
+                href="/Lettre_de_recommandation_Celia_ABBAD.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white font-medium underline hover:text-violet-400 transition"
+              >
+                Voir la lettre de recommandation
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
