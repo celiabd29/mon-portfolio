@@ -14,7 +14,7 @@ export default function AdminAddProject() {
   const [editingId, setEditingId] = useState(null);
 
   const fetchProjects = async () => {
-    const res = await fetch("http://localhost:4000/projects");
+    const res = await fetch("https://portfolio-v2-nw18.onrender.com/projects");
     const data = await res.json();
     setProjects(data);
   };
@@ -38,9 +38,9 @@ export default function AdminAddProject() {
       technologies: project.technologies,
       link: project.link,
       category: project.category,
-      image: null, // on ne peut pas pré-remplir un champ fichier
+      image: null, 
     });
-    setEditingId(project._id); // utile si tu veux gérer la mise à jour ensuite
+    setEditingId(project._id);
   };
 
   const handleSubmit = async (e) => {
@@ -55,8 +55,8 @@ export default function AdminAddProject() {
 
     try {
       const endpoint = editingId
-        ? `http://localhost:4000/projects/${editingId}`
-        : "http://localhost:4000/projects/add";
+        ? `https://portfolio-v2-nw18.onrender.com/projects/${editingId}`
+        : "https://portfolio-v2-nw18.onrender.com/projects/add";
 
       const method = editingId ? "PUT" : "POST";
 
@@ -87,13 +87,13 @@ export default function AdminAddProject() {
     if (!window.confirm("Supprimer ce projet ?")) return;
 
     try {
-      const res = await fetch(`http://localhost:4000/projects/${id}`, {
+      const res = await fetch(`https://portfolio-v2-nw18.onrender.com/projects/${id}`, {
         method: "DELETE",
       });
 
       const result = await res.json();
       alert(result.message);
-      fetchProjects(); // rafraîchir la liste
+      fetchProjects();
     } catch (err) {
       alert("Erreur lors de la suppression");
     }
@@ -177,7 +177,7 @@ export default function AdminAddProject() {
         {projects.map((project) => (
           <div key={project._id} className="border border-white p-4 rounded-xl">
             <img
-              src={`http://localhost:4000/uploads/${project.image}`}
+              src={`https://portfolio-v2-nw18.onrender.com/uploads/${project.image}`}
               alt={project.title}
               className="h-40 object-cover rounded mb-3"
             />
