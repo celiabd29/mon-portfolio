@@ -20,23 +20,24 @@ export default function About() {
         {/* Texte de présentation dans la carte */}
         <div className="mt-14 p-6 border border-violet-300 rounded-xl text-center max-w-md md:max-w-4xl">
           <p className="text-sm">
-            Je suis Célia Abbad, développeuse web en formation à Digital Campus
-            Paris, passionnée par la création de sites modernes, intuitifs et
-            performants. Avec une expérience en freelance, j’ai déjà réalisé
-            plusieurs projets, du site vitrine au e-commerce, en mettant un
-            point d'honneur à allier design, accessibilité et performance.
+            Consultante en développement web depuis 3 ans, j’interviens auprès
+            d’entreprises et d’indépendants pour concevoir des solutions
+            digitales robustes, évolutives et orientées performance. J’allie
+            expertise technique et vision stratégique pour créer des sites et
+            applications rapides, bien référencés et pensés pour la conversion.
           </p>
 
           <p className="mt-4 text-sm">
-            Actuellement à la recherche d’une alternance à partir de septembre
-            2025, je souhaite approfondir mes compétences en développement
-            front-end et back-end, en travaillant sur des projets concrets et
-            innovants.
+            En parallèle, j’implémente des systèmes d’automatisation
+            intelligents basés sur l’IA : workflows optimisés, intégrations
+            entre outils, scripts personnalisés et solutions sur mesure
+            permettant de réduire les tâches manuelles et d’augmenter la
+            productivité.
           </p>
 
           <p className="mt-4 text-sm">
-            Ce qui m’anime ? Concevoir des expériences digitales engageantes,
-            apprendre continuellement et relever des défis techniques.
+            Mon approche repose sur trois piliers : performance technique,
+            efficacité opérationnelle et impact mesurable.
           </p>
         </div>
 

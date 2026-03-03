@@ -107,19 +107,17 @@ export default function Portfolio() {
           {/* Titre */}
           <hr className="w-[4rem] border-t-1 my-2 md:hidden" />
           <h1 className="font-raleway text-xl md:text-2xl font-semibold">
-            Développeuse Web
+            Développeuse web freelance <br />& Automatisations IA
           </h1>
 
           {/* Séparateur */}
-          <span className="hidden md:block h-[10rem] border-l border-gray-400"></span>
+          <span className="hidden md:block h-[6rem] border-l border-gray-400"></span>
 
           {/* Texte */}
           <p className="font-raleway text-center text-md md:text-lg md:text-start md:max-w-lg">
-            Bienvenue sur mon portfolio ! Étudiante en développement web à
-            Digital Campus Paris, je suis passionnée par la conception de sites
-            dynamiques et intuitifs. Actuellement à la recherche d’une
-            alternance à partir de septembre 2025, je vous invite à découvrir
-            mon travail et mon parcours dans le domaine du digital.
+            J’accompagne les entreprises avec des solutions en développement web
+            performant et automatisations IA afin d’optimiser et structurer
+            durablement leur activité.
           </p>
         </section>
       </section>
