@@ -54,8 +54,8 @@ export default function Contact() {
           <div className="border-b-2 border-white w-[9rem] mt-6"></div>
         </div>
         <p className="font-raleway text-white text-center mt-10 mb-10 mx-4">
-          À l'écoute d'opportunités en développement web, freelance ou
-          alternance. Contactez-moi !
+          En recherche d'une alternance Master IA/Data à partir de novembre
+          2026. Ouverte aussi aux échanges freelance.
         </p>
         <form
           onSubmit={handleSubmit}

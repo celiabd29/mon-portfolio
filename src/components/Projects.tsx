@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
-  const [category, setCategory] = useState("Développement Web");
+  const [category, setCategory] = useState("IA & Produits");
   const [openDescriptionIndex, setOpenDescriptionIndex] = useState(null);
   const API_URL = import.meta.env.VITE_API_URL;
 
@@ -49,6 +49,14 @@ export default function Projects() {
         </div>
         {/* Catégories */}
         <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6 mt-6 mb-8">
+          <button
+            className={`px-4 py-2 rounded-full border w-[250px] text-center ${
+              category === "IA & Produits" ? "bg-white text-black" : ""
+            }`}
+            onClick={() => setCategory("IA & Produits")}
+          >
+            IA & Produits
+          </button>
           <button
             className={`px-4 py-2 rounded-full border w-[250px] text-center ${
               category === "Développement Web" ? "bg-white text-black" : ""

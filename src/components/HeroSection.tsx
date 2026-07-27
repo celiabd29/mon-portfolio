@@ -107,7 +107,7 @@ export default function Portfolio() {
           {/* Titre */}
           <hr className="w-[4rem] border-t-1 my-2 md:hidden" />
           <h1 className="font-raleway text-xl md:text-2xl font-semibold">
-            Développeuse web freelance <br />& Automatisations IA
+            Développeuse IA & Data <br />en alternance
           </h1>
 
           {/* Séparateur */}
@@ -115,9 +115,10 @@ export default function Portfolio() {
 
           {/* Texte */}
           <p className="font-raleway text-center text-md md:text-lg md:text-start md:max-w-lg">
-            J’accompagne les entreprises avec des solutions en développement web
-            performant et automatisations IA afin d’optimiser et structurer
-            durablement leur activité.
+            Je conçois des produits propulsés par l’IA — de l’API Claude aux
+            workflows d’automatisation et aux vector stores. Je recherche une
+            alternance Master IA & Data à partir de novembre 2026 pour continuer
+            à construire des solutions concrètes et mesurables.
           </p>
         </section>
       </section>

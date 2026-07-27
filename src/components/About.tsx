@@ -20,24 +20,23 @@ export default function About() {
         {/* Texte de présentation dans la carte */}
         <div className="mt-14 p-6 border border-violet-300 rounded-xl text-center max-w-md md:max-w-4xl">
           <p className="text-sm">
-            Consultante en développement web depuis 3 ans, j’interviens auprès
-            d’entreprises et d’indépendants pour concevoir des solutions
-            digitales robustes, évolutives et orientées performance. J’allie
-            expertise technique et vision stratégique pour créer des sites et
-            applications rapides, bien référencés et pensés pour la conversion.
+            Développeuse spécialisée en IA appliquée, je conçois des produits qui
+            s’appuient sur les modèles de langage (API Claude, LangChain), les
+            vector stores et l’automatisation de workflows pour transformer des
+            besoins métier en solutions concrètes et mesurables.
           </p>
 
           <p className="mt-4 text-sm">
-            En parallèle, j’implémente des systèmes d’automatisation
-            intelligents basés sur l’IA : workflows optimisés, intégrations
-            entre outils, scripts personnalisés et solutions sur mesure
-            permettant de réduire les tâches manuelles et d’augmenter la
-            productivité.
+            Actuellement en alternance chez Chantelle Group, je travaille sur
+            l’A/B testing et l’automatisation de processus avec n8n. En parallèle,
+            j’ai construit MANIA en autonomie — une agence de prospection B2B
+            propulsée par l’IA — de la conception produit jusqu’au déploiement.
           </p>
 
           <p className="mt-4 text-sm">
-            Mon approche repose sur trois piliers : performance technique,
-            efficacité opérationnelle et impact mesurable.
+            Je recherche une alternance Master IA & Data à partir de novembre
+            2026, pour approfondir la data et le machine learning au sein d’une
+            équipe ambitieuse.
           </p>
         </div>
 

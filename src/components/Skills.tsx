@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 export default function Skills() {
   const [skills, setSkills] = useState([]);
-  const [category, setCategory] = useState("Développement Web");
+  const [category, setCategory] = useState("IA & Automatisation");
   const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
@@ -35,6 +35,14 @@ export default function Skills() {
 
         <div className="flex flex-col md:flex-row justify-center items-center text-white bg-black py-10">
           <div className="flex flex-col space-y-4 md:mr-10">
+            <button
+              className={`px-4 py-2 rounded-full border ${
+                category === "IA & Automatisation" ? "bg-white text-black" : ""
+              }`}
+              onClick={() => setCategory("IA & Automatisation")}
+            >
+              IA & Automatisation
+            </button>
             <button
               className={`px-4 py-2 rounded-full border ${
                 category === "Développement Web" ? "bg-white text-black" : ""
