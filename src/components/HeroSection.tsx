@@ -115,10 +115,9 @@ export default function Portfolio() {
 
           {/* Texte */}
           <p className="font-raleway text-center text-md md:text-lg md:text-start md:max-w-lg">
-            Je conçois des produits propulsés par l’IA, de l’API Claude aux
-            workflows d’automatisation et aux vector stores. Je recherche une
-            alternance Master IA & Data à partir de novembre 2026 pour continuer
-            à construire des solutions concrètes et mesurables.
+            Étudiante en informatique, je recherche une alternance Master IA &
+            Data à partir de novembre 2026, pour construire des solutions
+            concrètes et mesurables.
           </p>
         </section>
       </section>
