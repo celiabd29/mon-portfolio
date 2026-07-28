@@ -146,7 +146,7 @@ export default function Contact() {
               un véritable couteau suisse du web.”
             </p>
             <p className="mt-4 font-bold text-violet-300">
-              — Calypso IMBERT, 10MentionWeb
+              Calypso IMBERT, 10MentionWeb
             </p>
 
             <div className="flex justify-center mt-6">

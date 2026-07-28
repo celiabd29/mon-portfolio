@@ -20,17 +20,15 @@ export default function About() {
         {/* Texte de présentation dans la carte */}
         <div className="mt-14 p-6 border border-violet-300 rounded-xl text-center max-w-md md:max-w-4xl">
           <p className="text-sm">
-            Développeuse spécialisée en IA appliquée, je conçois des produits qui
-            s’appuient sur les modèles de langage (API Claude, LangChain), les
-            vector stores et l’automatisation de workflows pour transformer des
-            besoins métier en solutions concrètes et mesurables.
+            Développeuse IA, spécialisée dans les produits construits autour des
+            LLM : API Claude, LangChain, vector stores, automatisation n8n.
           </p>
 
           <p className="mt-4 text-sm">
-            Actuellement en alternance chez Chantelle Group, je travaille sur
-            l’A/B testing et l’automatisation de processus avec n8n. En parallèle,
-            j’ai construit MANIA en autonomie — une agence de prospection B2B
-            propulsée par l’IA — de la conception produit jusqu’au déploiement.
+            En alternance chez Chantelle Group, je conçois des tests A/B et
+            automatise des processus métier avec n8n, de la détection d’un ticket
+            jusqu’à la QA. C’est là que j’ai appris à faire de l’IA un outil de
+            résultats mesurables.
           </p>
 
           <p className="mt-4 text-sm">
