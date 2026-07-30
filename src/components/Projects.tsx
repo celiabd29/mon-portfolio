@@ -5,21 +5,16 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
 
-// Affiche l'image d'un projet : object-cover pour les captures paysage
-// (sites web), object-contain pour les mockups portrait (téléphone) afin
-// de ne rien rogner. L'orientation est détectée au chargement de l'image.
+// Affiche l'image d'un projet en entier, sans coupe, quel que soit son
+// ratio (paysage ou portrait) : object-contain + centrage. Les zones vides
+// autour de l'image prennent le fond sombre du conteneur (défini sur le
+// conteneur, hauteur fixe) pour que le carousel reste visuellement stable.
 function ProjectImage({ src, alt }) {
-  const [portrait, setPortrait] = useState(false);
   return (
     <img
       src={src}
       alt={alt}
-      onLoad={(e) =>
-        setPortrait(e.currentTarget.naturalHeight > e.currentTarget.naturalWidth)
-      }
-      className={`w-full h-full ${
-        portrait ? "object-contain" : "object-cover"
-      }`}
+      className="w-full h-full object-contain object-center"
     />
   );
 }
