@@ -21,7 +21,8 @@ export default function About() {
         <div className="mt-14 p-6 border border-violet-300 rounded-xl text-center max-w-md md:max-w-4xl">
           <p className="text-sm">
             Développeuse IA, spécialisée dans les produits construits autour des
-            LLM : API Claude, LangChain, vector stores, automatisation n8n.
+            LLM : API LLM (Claude, GPT, Gemini), LangChain, vector stores,
+            automatisation n8n.
           </p>
 
           <p className="mt-4 text-sm">
