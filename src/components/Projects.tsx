@@ -5,6 +5,25 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
 
+// Affiche l'image d'un projet : object-cover pour les captures paysage
+// (sites web), object-contain pour les mockups portrait (téléphone) afin
+// de ne rien rogner. L'orientation est détectée au chargement de l'image.
+function ProjectImage({ src, alt }) {
+  const [portrait, setPortrait] = useState(false);
+  return (
+    <img
+      src={src}
+      alt={alt}
+      onLoad={(e) =>
+        setPortrait(e.currentTarget.naturalHeight > e.currentTarget.naturalWidth)
+      }
+      className={`w-full h-full ${
+        portrait ? "object-contain" : "object-cover"
+      }`}
+    />
+  );
+}
+
 export default function Projects() {
   const [projects, setProjects] = useState([]);
   const [category, setCategory] = useState("IA & Produits");
@@ -94,11 +113,10 @@ export default function Projects() {
               <SwiperSlide key={index}>
                 <div className="flex items-center h-[480px] bg-[#121212] border border-white rounded-2xl p-6 space-x-10 shadow-lg">
                   {/* Image du projet */}
-                  <div className="w-1/2 h-full border border-white rounded-xl overflow-hidden">
-                    <img
+                  <div className="w-1/2 h-full border border-white rounded-xl overflow-hidden bg-[#121212]">
+                    <ProjectImage
                       src={`${API_URL}/uploads/${project.image}`}
                       alt={project.title}
-                      className="w-full h-full object-cover"
                     />
                   </div>
 
@@ -173,11 +191,10 @@ export default function Projects() {
                 <SwiperSlide key={index}>
                   <div className="bg-[#121212] border border-white rounded-2xl px-3 py-5 shadow-lg w-[87%] mx-auto">
                     {/* Image */}
-                    <div className="w-full h-[160px] border border-white rounded-xl overflow-hidden mb-4">
-                      <img
+                    <div className="w-full h-[220px] border border-white rounded-xl overflow-hidden mb-4 bg-[#121212]">
+                      <ProjectImage
                         src={`${API_URL}/uploads/${project.image}`}
                         alt={project.title}
-                        className="w-full h-full object-cover"
                       />
                     </div>
 
