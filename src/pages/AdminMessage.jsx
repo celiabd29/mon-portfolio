@@ -32,11 +32,8 @@ export default function AdminMessages() {
 
   const deleteMessage = async (id) => {
     if (!window.confirm("Supprimer ce message ?")) return;
-
     try {
-      await fetch(`http://localhost:4000/messages/${id}`, {
-        method: "DELETE",
-      });
+      await fetch(`http://localhost:4000/messages/${id}`, { method: "DELETE" });
       fetchMessages();
     } catch (err) {
       console.error("❌ Erreur suppression :", err);
@@ -47,33 +44,32 @@ export default function AdminMessages() {
   const unread = messages.filter((msg) => !msg.isRead).length;
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-12">
-      <h1 className="text-4xl font-bold text-accent-400 mb-6">
-        Messages reçus
-      </h1>
+    <div className="mx-auto flex min-h-screen max-w-4xl flex-col items-center px-6 py-14 text-ink">
+      <h1 className="mb-2 font-display text-4xl font-extrabold tracking-tight">Messages reçus</h1>
+      <div className="mb-6 h-1 w-16 rounded-full bg-accent" />
 
-      <p className="mb-8 text-sm text-gray-400">
-        Total : <span className="text-white font-semibold">{total}</span> | Non
-        lus : <span className="text-accent-300 font-semibold">{unread}</span>
+      <p className="mb-8 text-sm text-muted">
+        Total : <span className="font-semibold text-ink">{total}</span> · Non lus :{" "}
+        <span className="font-semibold text-accent-ink">{unread}</span>
       </p>
 
       {total === 0 ? (
-        <p className="text-gray-400">Aucun message pour le moment.</p>
+        <p className="text-muted">Aucun message pour le moment.</p>
       ) : (
-        <div className="w-full max-w-4xl space-y-6">
+        <div className="w-full space-y-5">
           {messages.map((msg) => (
             <div
               key={msg._id}
-              className={`bg-neutral-900 border ${
-                msg.isRead ? "border-white/10" : "border-accent-400"
-              } rounded-2xl p-6 shadow`}
+              className={`rounded-2xl border bg-surface p-6 shadow-[0_20px_40px_-30px_rgba(28,46,74,0.5)] ${
+                msg.isRead ? "border-line" : "border-accent"
+              }`}
             >
-              <div className="flex justify-between items-start mb-2">
+              <div className="mb-2 flex items-start justify-between">
                 <div>
                   <h2 className="text-lg font-semibold">{msg.name}</h2>
-                  <p className="text-sm text-accent-300">{msg.email}</p>
+                  <p className="text-sm text-accent-ink">{msg.email}</p>
                 </div>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-muted">
                   {new Date(msg.createdAt).toLocaleString("fr-FR", {
                     dateStyle: "short",
                     timeStyle: "short",
@@ -81,23 +77,22 @@ export default function AdminMessages() {
                 </p>
               </div>
 
-              <p className="text-white mb-4">{msg.message}</p>
+              <p className="mb-4 text-ink">{msg.message}</p>
 
-              <div className="flex gap-4">
+              <div className="flex gap-3">
                 <button
                   onClick={() => markAsRead(msg._id, !msg.isRead)}
-                  className={`px-4 py-1 text-sm rounded-full font-medium transition ${
+                  className={`rounded-full px-4 py-1 text-sm font-medium transition ${
                     msg.isRead
-                      ? "bg-yellow-400 text-black hover:bg-yellow-500"
-                      : "bg-green-500 text-white hover:bg-green-600"
+                      ? "bg-amber-400 text-ink hover:bg-amber-500"
+                      : "bg-emerald-500 text-white hover:bg-emerald-600"
                   }`}
                 >
                   {msg.isRead ? "Marquer comme non lu" : "Marquer comme lu"}
                 </button>
-
                 <button
                   onClick={() => deleteMessage(msg._id)}
-                  className="px-4 py-1 text-sm rounded-full bg-red-500 hover:bg-red-600 text-white font-medium"
+                  className="rounded-full bg-red-500 px-4 py-1 text-sm font-medium text-white transition hover:bg-red-600"
                 >
                   Supprimer
                 </button>
