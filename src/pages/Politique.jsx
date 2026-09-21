@@ -1,103 +1,103 @@
 import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import React from "react";
+
+function Section({ title, children }) {
+  return (
+    <section className="border-t border-line pt-6">
+      <h2 className="font-display text-xl font-bold text-ink">{title}</h2>
+      <div className="mt-3 space-y-3 leading-relaxed text-muted">{children}</div>
+    </section>
+  );
+}
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-12">
-      <h1 className="text-4xl md:text-5xl font-bold text-accent-400 text-center">
-        Politique de Confidentialité
-      </h1>
+    <div className="min-h-screen text-ink">
+      <div className="mx-auto max-w-2xl px-5 py-14">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-muted transition hover:text-ink"
+        >
+          <ArrowLeft size={16} /> Retour à l'accueil
+        </Link>
 
-      <div className="mt-6 max-w-4xl text-gray-300 text-lg space-y-6">
-        <p className="text-center md:text-left">
-          <span className="font-semibold">Dernière mise à jour :</span>{" "}
-          21/03/2025
+        <h1 className="mt-8 font-display text-4xl font-extrabold tracking-tight md:text-5xl">
+          Politique de confidentialité
+        </h1>
+        <div className="mt-5 h-1 w-16 rounded-full bg-accent" />
+        <p className="mt-6 text-sm text-muted">
+          <span className="font-semibold text-ink">Dernière mise à jour :</span> 21/03/2025
         </p>
 
-        <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-accent-400">1. Introduction</h2>
-          <p>
-            Votre confidentialité est importante pour nous. Cette politique
-            explique comment nous collectons, utilisons et protégeons vos
-            informations personnelles lorsque vous visitez notre site web{" "}
-            <strong>celia-abbad.com</strong>.
-          </p>
-        </section>
+        <div className="mt-8 space-y-8">
+          <Section title="1. Introduction">
+            <p>
+              Votre confidentialité est importante pour nous. Cette politique
+              explique comment nous collectons, utilisons et protégeons vos
+              informations personnelles lorsque vous visitez notre site web{" "}
+              <strong className="font-semibold text-ink">celia-abbad.com</strong>.
+            </p>
+          </Section>
 
-        <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-accent-400">
-            2. Données collectées
-          </h2>
-          <ul className="list-disc list-inside">
-            <li>Formulaire de contact : Nom, email et message.</li>
-            <li>
-              Cookies et technologies similaires : Données analytiques anonymes.
-            </li>
-          </ul>
-        </section>
+          <Section title="2. Données collectées">
+            <ul className="list-inside list-disc space-y-1">
+              <li>Formulaire de contact : nom, email et message.</li>
+              <li>Cookies et technologies similaires : données analytiques anonymes.</li>
+            </ul>
+          </Section>
 
-        <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-accent-400">
-            3. Utilisation des données
-          </h2>
-          <p>Vos données sont utilisées uniquement pour :</p>
-          <ul className="list-disc list-inside">
-            <li>Répondre à vos demandes via le formulaire de contact.</li>
-            <li>
-              Améliorer la navigation et analyser les performances du site.
-            </li>
-          </ul>
-        </section>
+          <Section title="3. Utilisation des données">
+            <p>Vos données sont utilisées uniquement pour :</p>
+            <ul className="list-inside list-disc space-y-1">
+              <li>Répondre à vos demandes via le formulaire de contact.</li>
+              <li>Améliorer la navigation et analyser les performances du site.</li>
+            </ul>
+          </Section>
 
-        <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-accent-400">
-            4. Stockage et Sécurité des données
-          </h2>
-          <p>
-            Vos données sont stockées en toute sécurité et ne sont jamais
-            revendues à des tiers.
-          </p>
-        </section>
+          <Section title="4. Stockage et sécurité des données">
+            <p>
+              Vos données sont stockées en toute sécurité et ne sont jamais
+              revendues à des tiers.
+            </p>
+          </Section>
 
-        <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-accent-400">
-            5. Droits des utilisateurs
-          </h2>
-          <p>Conformément au RGPD, vous avez le droit de :</p>
-          <ul className="list-disc list-inside">
-            <li>Accéder à vos données.</li>
-            <li>Demander leur modification ou suppression.</li>
-            <li>Vous opposer à leur traitement.</li>
-          </ul>
-          <p>
-            Pour toute demande, contactez-nous à :{" "}
-            <strong>contact@celia-abbad.com</strong>.
-          </p>
-        </section>
+          <Section title="5. Droits des utilisateurs">
+            <p>Conformément au RGPD, vous avez le droit de :</p>
+            <ul className="list-inside list-disc space-y-1">
+              <li>Accéder à vos données.</li>
+              <li>Demander leur modification ou suppression.</li>
+              <li>Vous opposer à leur traitement.</li>
+            </ul>
+            <p>
+              Pour toute demande, contactez-nous à :{" "}
+              <strong className="font-semibold text-ink">contact@celia-abbad.com</strong>.
+            </p>
+          </Section>
 
-        <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-accent-400">6. Cookies</h2>
-          <p>
-            Nous utilisons des cookies pour améliorer l’expérience utilisateur.
-            Vous pouvez les désactiver via les paramètres de votre navigateur.
-          </p>
-        </section>
+          <Section title="6. Cookies">
+            <p>
+              Nous utilisons des cookies pour améliorer l'expérience utilisateur.
+              Vous pouvez les désactiver via les paramètres de votre navigateur.
+            </p>
+          </Section>
 
-        <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-accent-400">7. Contact</h2>
-          <p>
-            Si vous avez des questions concernant cette politique, vous pouvez
-            nous contacter à :<strong> contact@celia-abbad.com</strong>.
-          </p>
-        </section>
+          <Section title="7. Contact">
+            <p>
+              Si vous avez des questions concernant cette politique, vous pouvez
+              nous contacter à :{" "}
+              <strong className="font-semibold text-ink">contact@celia-abbad.com</strong>.
+            </p>
+          </Section>
+        </div>
+
+        <Link
+          to="/"
+          className="mt-10 inline-block rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-[0_14px_28px_-12px_rgba(245,113,78,0.7)] transition hover:brightness-105 active:scale-[0.98]"
+        >
+          Retour à l'accueil
+        </Link>
       </div>
-
-      <Link
-        to="/"
-        className="mt-8 bg-accent-500 hover:bg-accent-600 text-white px-6 py-2 rounded-lg transition"
-      >
-        Retour à l'accueil
-      </Link>
     </div>
   );
 }

@@ -1,95 +1,92 @@
 import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import React from "react";
+
+function Section({ title, children }) {
+  return (
+    <section className="border-t border-line pt-6">
+      <h2 className="font-display text-xl font-bold text-ink">{title}</h2>
+      <div className="mt-3 space-y-2 leading-relaxed text-muted">{children}</div>
+    </section>
+  );
+}
 
 export default function LegalNotices() {
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-12">
-      <h1 className="text-4xl md:text-5xl font-bold text-accent-400 text-center">
-        Mentions Légales
-      </h1>
+    <div className="min-h-screen text-ink">
+      <div className="mx-auto max-w-2xl px-5 py-14">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-muted transition hover:text-ink"
+        >
+          <ArrowLeft size={16} /> Retour à l'accueil
+        </Link>
 
-      <div className="mt-6 max-w-4xl text-gray-300 text-lg space-y-6">
-        <p className="text-center md:text-left">
-          <span className="font-semibold">Loi applicable :</span> Articles 6-III
-          et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans
+        <h1 className="mt-8 font-display text-4xl font-extrabold tracking-tight md:text-5xl">
+          Mentions légales
+        </h1>
+        <div className="mt-5 h-1 w-16 rounded-full bg-accent" />
+        <p className="mt-6 text-sm text-muted">
+          <span className="font-semibold text-ink">Loi applicable :</span> Articles
+          6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans
           l'Économie Numérique.
         </p>
 
-        <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-accent-400">
-            1. Éditeur du site
-          </h2>
-          <p>
-            <span className="font-semibold">Nom :</span> Célia ABBAD
-          </p>
-          <p>
-            <span className="font-semibold">Email :</span>{" "}
-            contact@celia-abbad.com
-          </p>
-          <p>
-            <span className="font-semibold">Site Web :</span>{" "}
-            <a
-              href="https://celia-abbad.com/"
-              className="text-accent-400 hover:underline"
-            >
-              celia-abbad.com
-            </a>
-          </p>
-        </section>
+        <div className="mt-8 space-y-8">
+          <Section title="1. Éditeur du site">
+            <p><span className="font-semibold text-ink">Nom :</span> Célia Abbad</p>
+            <p><span className="font-semibold text-ink">Email :</span> contact@celia-abbad.com</p>
+            <p>
+              <span className="font-semibold text-ink">Site web :</span>{" "}
+              <a
+                href="https://celia-abbad.com/"
+                className="font-semibold text-accent-ink underline decoration-accent/40 underline-offset-2 hover:decoration-accent"
+              >
+                celia-abbad.com
+              </a>
+            </p>
+          </Section>
 
-        <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-accent-400">2. Hébergeur</h2>
-          <p>
-            <span className="font-semibold">Hébergeur :</span> o2switch
-          </p>
-          <p>222 Boulevard Gustave Flaubert, 63000 Clermont-Ferrand, France</p>
-        </section>
+          <Section title="2. Hébergeur">
+            <p><span className="font-semibold text-ink">Hébergeur :</span> o2switch</p>
+            <p>222 Boulevard Gustave Flaubert, 63000 Clermont-Ferrand, France</p>
+          </Section>
 
-        <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-accent-400">
-            3. Propriété intellectuelle
-          </h2>
-          <p>
-            L’ensemble du contenu du site (textes, images, logos) est protégé
-            par les lois sur la propriété intellectuelle. Toute reproduction
-            sans autorisation est interdite.
-          </p>
-        </section>
+          <Section title="3. Propriété intellectuelle">
+            <p>
+              L'ensemble du contenu du site (textes, images, logos) est protégé
+              par les lois sur la propriété intellectuelle. Toute reproduction
+              sans autorisation est interdite.
+            </p>
+          </Section>
 
-        <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-accent-400">
-            4. Responsabilité
-          </h2>
-          <p>
-            L’éditeur ne peut être tenu responsable des erreurs ou omissions sur
-            le site, ni des dommages liés à son utilisation.
-          </p>
-        </section>
+          <Section title="4. Responsabilité">
+            <p>
+              L'éditeur ne peut être tenu responsable des erreurs ou omissions
+              sur le site, ni des dommages liés à son utilisation.
+            </p>
+          </Section>
 
-        <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-accent-400">
-            5. Liens externes
-          </h2>
-          <p>
-            Le site peut contenir des liens vers des sites tiers. Nous ne sommes
-            pas responsables de leur contenu ou politique de confidentialité.
-          </p>
-        </section>
+          <Section title="5. Liens externes">
+            <p>
+              Le site peut contenir des liens vers des sites tiers. Nous ne
+              sommes pas responsables de leur contenu ou politique de
+              confidentialité.
+            </p>
+          </Section>
 
-        <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-accent-400">
-            6. Droit applicable
-          </h2>
-          <p>Les présentes mentions légales sont soumises au droit français.</p>
-        </section>
+          <Section title="6. Droit applicable">
+            <p>Les présentes mentions légales sont soumises au droit français.</p>
+          </Section>
+        </div>
+
+        <Link
+          to="/"
+          className="mt-10 inline-block rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-[0_14px_28px_-12px_rgba(245,113,78,0.7)] transition hover:brightness-105 active:scale-[0.98]"
+        >
+          Retour à l'accueil
+        </Link>
       </div>
-
-      <Link
-        to="/"
-        className="mt-8 bg-accent-500 hover:bg-accent-600 text-white px-6 py-2 rounded-lg transition"
-      >
-        Retour à l'accueil
-      </Link>
     </div>
   );
 }
