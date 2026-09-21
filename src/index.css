@@ -8,6 +8,20 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Accessibilité : si l'utilisateur a demandé moins d'animations, on coupe
+   tout (le !important garantit que les utilitaires Tailwind sont bien
+   neutralisés, ce qu'une regle par element ne peut pas assurer partout). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 .swiper-pagination {
   display: flex;
   justify-content: center;
@@ -21,11 +35,14 @@ html {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  transition: all 0.3s ease;
+  /* On cible les proprietes animees plutot que "all" (regle d'or perf :
+     rester sur opacity/transform et couleur, jamais tout). */
+  transition: background-color 200ms ease, opacity 200ms ease,
+    transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #a78bfa;
+  background-color: #FB9E3A;
   opacity: 1;
   transform: scale(1.2);
 }
@@ -35,11 +52,14 @@ html {
   background-color: #999;
   border-radius: 9999px;
   opacity: 0.6;
-  transition: all 0.3s ease;
+  transform-origin: center;
+  /* On anime transform (GPU) plutot que width : pas de reflow. */
+  transition: background-color 250ms ease, opacity 250ms ease,
+    transform 250ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .custom-bullet-active {
-  background-color: #a78bfa; /* violet */
+  background-color: #FB9E3A; /* accent ambre */
   opacity: 1;
-  width: 16px;
+  transform: scaleX(1.6);
 }

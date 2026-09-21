@@ -11,7 +11,7 @@ export default function Footer() {
             href="https://www.linkedin.com/in/c%C3%A9lia-abbad-13801829a/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white text-2xl hover:text-violet-300 transition"
+            className="text-white text-2xl inline-block hover:text-accent-300 transition duration-200 ease hover:scale-110 active:scale-95"
           >
             <FaLinkedin />
           </a>
@@ -19,7 +19,7 @@ export default function Footer() {
             href="https://github.com/celiabd29"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white text-2xl hover:text-violet-300 transition"
+            className="text-white text-2xl inline-block hover:text-accent-300 transition duration-200 ease hover:scale-110 active:scale-95"
           >
             <FaGithub />
           </a>
@@ -38,13 +38,13 @@ export default function Footer() {
         <div className="flex flex-col items-center md:items-end text-sm space-y-1">
           <a
             href="/politique-de-confidentialite"
-            className="hover:text-violet-300 transition"
+            className="hover:text-accent-300 transition"
           >
             Politique de confidentialité
           </a>
           <a
             href="/mentions-legales"
-            className="hover:text-violet-300 transition"
+            className="hover:text-accent-300 transition"
           >
             Mentions légales
           </a>

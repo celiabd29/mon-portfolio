@@ -78,7 +78,7 @@ export default function AdminAddSkill() {
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-12">
-      <h1 className="text-4xl font-bold text-violet-400 mb-10">
+      <h1 className="text-4xl font-bold text-accent-400 mb-10">
         Ajouter une compétence
       </h1>
 
@@ -120,7 +120,7 @@ export default function AdminAddSkill() {
 
         <button
           type="submit"
-          className="w-full py-3 bg-violet-400 text-black font-semibold rounded-full hover:bg-violet-300 transition"
+          className="w-full py-3 bg-accent-400 text-black font-semibold rounded-full hover:bg-accent-300 transition"
         >
           {editingId ? "Modifier" : "Ajouter"} la compétence
         </button>
@@ -139,7 +139,7 @@ export default function AdminAddSkill() {
               className="h-16 w-16 object-contain mb-3"
             />
             <h3 className="text-lg font-semibold">{skill.name}</h3>
-            <p className="text-sm text-violet-300">{skill.category}</p>
+            <p className="text-sm text-accent-300">{skill.category}</p>
             <div className="mt-4 flex gap-2">
               <button
                 onClick={() => handleEdit(skill)}

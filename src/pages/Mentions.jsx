@@ -4,7 +4,7 @@ import React from "react";
 export default function LegalNotices() {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-12">
-      <h1 className="text-4xl md:text-5xl font-bold text-violet-400 text-center">
+      <h1 className="text-4xl md:text-5xl font-bold text-accent-400 text-center">
         Mentions Légales
       </h1>
 
@@ -16,7 +16,7 @@ export default function LegalNotices() {
         </p>
 
         <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-violet-400">
+          <h2 className="text-xl font-bold text-accent-400">
             1. Éditeur du site
           </h2>
           <p>
@@ -30,7 +30,7 @@ export default function LegalNotices() {
             <span className="font-semibold">Site Web :</span>{" "}
             <a
               href="https://celia-abbad.com/"
-              className="text-violet-400 hover:underline"
+              className="text-accent-400 hover:underline"
             >
               celia-abbad.com
             </a>
@@ -38,7 +38,7 @@ export default function LegalNotices() {
         </section>
 
         <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-violet-400">2. Hébergeur</h2>
+          <h2 className="text-xl font-bold text-accent-400">2. Hébergeur</h2>
           <p>
             <span className="font-semibold">Hébergeur :</span> o2switch
           </p>
@@ -46,7 +46,7 @@ export default function LegalNotices() {
         </section>
 
         <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-violet-400">
+          <h2 className="text-xl font-bold text-accent-400">
             3. Propriété intellectuelle
           </h2>
           <p>
@@ -57,7 +57,7 @@ export default function LegalNotices() {
         </section>
 
         <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-violet-400">
+          <h2 className="text-xl font-bold text-accent-400">
             4. Responsabilité
           </h2>
           <p>
@@ -67,7 +67,7 @@ export default function LegalNotices() {
         </section>
 
         <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-violet-400">
+          <h2 className="text-xl font-bold text-accent-400">
             5. Liens externes
           </h2>
           <p>
@@ -77,7 +77,7 @@ export default function LegalNotices() {
         </section>
 
         <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-violet-400">
+          <h2 className="text-xl font-bold text-accent-400">
             6. Droit applicable
           </h2>
           <p>Les présentes mentions légales sont soumises au droit français.</p>
@@ -86,7 +86,7 @@ export default function LegalNotices() {
 
       <Link
         to="/"
-        className="mt-8 bg-violet-500 hover:bg-violet-600 text-white px-6 py-2 rounded-lg transition"
+        className="mt-8 bg-accent-500 hover:bg-accent-600 text-white px-6 py-2 rounded-lg transition"
       >
         Retour à l'accueil
       </Link>

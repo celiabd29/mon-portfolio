@@ -4,7 +4,7 @@ import React from "react";
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-12">
-      <h1 className="text-4xl md:text-5xl font-bold text-violet-400 text-center">
+      <h1 className="text-4xl md:text-5xl font-bold text-accent-400 text-center">
         Politique de Confidentialité
       </h1>
 
@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
         </p>
 
         <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-violet-400">1. Introduction</h2>
+          <h2 className="text-xl font-bold text-accent-400">1. Introduction</h2>
           <p>
             Votre confidentialité est importante pour nous. Cette politique
             explique comment nous collectons, utilisons et protégeons vos
@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-violet-400">
+          <h2 className="text-xl font-bold text-accent-400">
             2. Données collectées
           </h2>
           <ul className="list-disc list-inside">
@@ -37,7 +37,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-violet-400">
+          <h2 className="text-xl font-bold text-accent-400">
             3. Utilisation des données
           </h2>
           <p>Vos données sont utilisées uniquement pour :</p>
@@ -50,7 +50,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-violet-400">
+          <h2 className="text-xl font-bold text-accent-400">
             4. Stockage et Sécurité des données
           </h2>
           <p>
@@ -60,7 +60,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-violet-400">
+          <h2 className="text-xl font-bold text-accent-400">
             5. Droits des utilisateurs
           </h2>
           <p>Conformément au RGPD, vous avez le droit de :</p>
@@ -76,7 +76,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-violet-400">6. Cookies</h2>
+          <h2 className="text-xl font-bold text-accent-400">6. Cookies</h2>
           <p>
             Nous utilisons des cookies pour améliorer l’expérience utilisateur.
             Vous pouvez les désactiver via les paramètres de votre navigateur.
@@ -84,7 +84,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="border-t border-gray-600 pt-6">
-          <h2 className="text-xl font-bold text-violet-400">7. Contact</h2>
+          <h2 className="text-xl font-bold text-accent-400">7. Contact</h2>
           <p>
             Si vous avez des questions concernant cette politique, vous pouvez
             nous contacter à :<strong> contact@celia-abbad.com</strong>.
@@ -94,7 +94,7 @@ export default function PrivacyPolicy() {
 
       <Link
         to="/"
-        className="mt-8 bg-violet-500 hover:bg-violet-600 text-white px-6 py-2 rounded-lg transition"
+        className="mt-8 bg-accent-500 hover:bg-accent-600 text-white px-6 py-2 rounded-lg transition"
       >
         Retour à l'accueil
       </Link>

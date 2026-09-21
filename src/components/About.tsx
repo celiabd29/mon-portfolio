@@ -1,24 +1,23 @@
 import React from "react";
+import Reveal from "./Reveal";
 
 export default function About() {
   return (
     <div className="bg-black text-white flex flex-col items-center justify-center px-4 bottom-30">
-      {/* Texte en fond "QUI SUIS-JE ?" */}
-      <section id="presentation">
-        <h2 className="relative text-center text-[3rem] md:text-8xl font-bold top-12 text-violet-400 opacity-30 md:top-16">
-          QUI SUIS-JE ?
-        </h2>
-
+      <section id="presentation" className="pt-24 md:pt-32">
         {/* Titre central */}
-        <div className="flex flex-col items-center">
-          <h2 className="text-3xl md:text-5xl tracking-wide font-medium">
+        <Reveal className="flex flex-col items-center">
+          <h2 className="text-4xl md:text-6xl tracking-wide font-semibold">
             PRÉSENTATION
           </h2>
           <div className="border-b-2 border-white w-[9rem] mt-6"></div>
-        </div>
+        </Reveal>
 
         {/* Texte de présentation dans la carte */}
-        <div className="mt-14 p-6 border border-violet-300 rounded-xl text-center max-w-md md:max-w-4xl">
+        <Reveal
+          delay={100}
+          className="mt-14 p-6 border border-accent-300 rounded-xl text-center max-w-md md:max-w-xl"
+        >
           <p className="text-sm">
             Développeuse IA, spécialisée dans les produits construits autour des
             LLM : API LLM (Claude, GPT, Gemini), LangChain, vector stores,
@@ -37,7 +36,7 @@ export default function About() {
             2026, pour approfondir la data et le machine learning au sein d’une
             équipe ambitieuse.
           </p>
-        </div>
+        </Reveal>
 
         <div className=" bg-black text-white flex flex-col items-center py-12 mt-6">
           {/* Titre */}
@@ -53,7 +52,7 @@ export default function About() {
                 <img
                   src="/icons/bachelor.svg"
                   alt="Dev Icon"
-                  className="w-8 h-8 text-violet-500"
+                  className="w-8 h-8 text-accent-500"
                 />
               </div>
               <div>
@@ -70,7 +69,7 @@ export default function About() {
                 <img
                   src="/icons/licence.svg"
                   alt="University Icon"
-                  className="w-8 h-8 text-violet-500"
+                  className="w-8 h-8 text-accent-500"
                 />
               </div>
               <div>
@@ -85,7 +84,7 @@ export default function About() {
                 <img
                   src="/icons/diplome.svg"
                   alt="Graduation Icon"
-                  className="w-8 h-8 text-violet-500"
+                  className="w-8 h-8 text-accent-500"
                 />
               </div>
               <div>
@@ -109,7 +108,7 @@ export default function About() {
                 <img
                   src="/icons/bachelor.svg"
                   alt="Dev Icon"
-                  className="w-14 h-14 text-violet-500"
+                  className="w-14 h-14 text-accent-500"
                 />
               </div>
               <div className="w-1/2 text-left pl-10">
@@ -131,7 +130,7 @@ export default function About() {
                 <img
                   src="/icons/licence.svg"
                   alt="University Icon"
-                  className="w-14 h-14 text-violet-500"
+                  className="w-14 h-14 text-accent-500"
                 />
               </div>
               <div className="w-1/2 text-left pl-10">
@@ -150,7 +149,7 @@ export default function About() {
                 <img
                   src="/icons/diplome.svg"
                   alt="Graduation Icon"
-                  className="w-14 h-14 text-violet-500"
+                  className="w-14 h-14 text-accent-500"
                 />
               </div>
               <div className="w-1/2 text-left pl-10">

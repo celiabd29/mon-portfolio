@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Reveal from "./Reveal";
 
 export default function Skills() {
   const [skills, setSkills] = useState([]);
@@ -19,24 +20,19 @@ export default function Skills() {
 
   return (
     <div className="bg-black text-white flex flex-col items-center justify-center px-4 bottom-30">
-      {/* Texte en fond "COMPÉTENCES" */}
-      <section id="competences">
-        <h2 className="relative text-center text-[3rem] md:text-8xl font-bold top-12 text-violet-400 opacity-30 md:top-16">
-          COMPÉTENCES
-        </h2>
-
+      <section id="competences" className="pt-24 md:pt-32">
         {/* Titre central */}
-        <div className="flex flex-col items-center">
-          <h2 className="text-3xl md:text-5xl tracking-wide font-medium">
-            LANGAGES/LOGICIELS
+        <Reveal className="flex flex-col items-center">
+          <h2 className="text-4xl md:text-6xl tracking-wide font-semibold">
+            COMPÉTENCES
           </h2>
           <div className="border-b-2 border-white w-[9rem] mt-6"></div>
-        </div>
+        </Reveal>
 
         <div className="flex flex-col md:flex-row justify-center items-center text-white bg-black py-10">
           <div className="flex flex-col space-y-4 md:mr-10">
             <button
-              className={`px-4 py-2 rounded-full border ${
+              className={`px-4 py-2 rounded-full border transition duration-200 ease active:scale-[0.97] ${
                 category === "IA & Automatisation" ? "bg-white text-black" : ""
               }`}
               onClick={() => setCategory("IA & Automatisation")}
@@ -44,7 +40,7 @@ export default function Skills() {
               IA & Automatisation
             </button>
             <button
-              className={`px-4 py-2 rounded-full border ${
+              className={`px-4 py-2 rounded-full border transition duration-200 ease active:scale-[0.97] ${
                 category === "Développement Web" ? "bg-white text-black" : ""
               }`}
               onClick={() => setCategory("Développement Web")}
@@ -52,7 +48,7 @@ export default function Skills() {
               Développement Web
             </button>
             <button
-              className={`px-4 py-2 rounded-full border ${
+              className={`px-4 py-2 rounded-full border transition duration-200 ease active:scale-[0.97] ${
                 category === "Graphisme & UX/UI" ? "bg-white text-black" : ""
               }`}
               onClick={() => setCategory("Graphisme & UX/UI")}
@@ -65,7 +61,10 @@ export default function Skills() {
             {skills
               .filter((skill) => skill.category === category)
               .map((skill, index) => (
-                <div key={index} className="flex flex-col items-center">
+                <div
+                  key={index}
+                  className="flex flex-col items-center transition-transform duration-200 ease-out-quint hover:scale-110"
+                >
                   <img
                     src={`${API_URL}/uploads/${skill.image}`}
                     alt={skill.name}

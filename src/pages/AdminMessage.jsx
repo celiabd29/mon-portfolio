@@ -48,13 +48,13 @@ export default function AdminMessages() {
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-12">
-      <h1 className="text-4xl font-bold text-violet-400 mb-6">
+      <h1 className="text-4xl font-bold text-accent-400 mb-6">
         Messages reçus
       </h1>
 
       <p className="mb-8 text-sm text-gray-400">
         Total : <span className="text-white font-semibold">{total}</span> | Non
-        lus : <span className="text-violet-300 font-semibold">{unread}</span>
+        lus : <span className="text-accent-300 font-semibold">{unread}</span>
       </p>
 
       {total === 0 ? (
@@ -65,13 +65,13 @@ export default function AdminMessages() {
             <div
               key={msg._id}
               className={`bg-neutral-900 border ${
-                msg.isRead ? "border-white/10" : "border-violet-400"
+                msg.isRead ? "border-white/10" : "border-accent-400"
               } rounded-2xl p-6 shadow`}
             >
               <div className="flex justify-between items-start mb-2">
                 <div>
                   <h2 className="text-lg font-semibold">{msg.name}</h2>
-                  <p className="text-sm text-violet-300">{msg.email}</p>
+                  <p className="text-sm text-accent-300">{msg.email}</p>
                 </div>
                 <p className="text-sm text-gray-400">
                   {new Date(msg.createdAt).toLocaleString("fr-FR", {

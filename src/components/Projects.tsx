@@ -4,6 +4,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
+import Reveal from "./Reveal";
 
 // Affiche l'image d'un projet en entier, sans coupe, quel que soit son
 // ratio (paysage ou portrait) : object-contain + centrage. Les zones vides
@@ -51,20 +52,17 @@ export default function Projects() {
 
   return (
     <div className="bg-black text-white flex flex-col items-center justify-center px-4 relative">
-      <section id="projets">
-        <h2 className="relative text-center text-[3rem] md:text-8xl font-bold top-12 text-violet-400 opacity-30 md:top-16">
-          PORTFOLIO
-        </h2>
-        <div className="flex flex-col items-center">
-          <h2 className="text-3xl md:text-5xl tracking-wide font-medium">
+      <section id="projets" className="pt-24 md:pt-32">
+        <Reveal className="flex flex-col items-center">
+          <h2 className="text-4xl md:text-6xl tracking-wide font-semibold">
             MES PROJETS
           </h2>
           <div className="border-b-2 border-white w-[9rem] mt-6 mb-10" />
-        </div>
+        </Reveal>
         {/* Catégories */}
         <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6 mt-6 mb-8">
           <button
-            className={`px-4 py-2 rounded-full border w-[250px] text-center ${
+            className={`px-4 py-2 rounded-full border w-[250px] text-center transition duration-200 ease active:scale-[0.97] ${
               category === "IA & Produits" ? "bg-white text-black" : ""
             }`}
             onClick={() => setCategory("IA & Produits")}
@@ -72,7 +70,7 @@ export default function Projects() {
             IA & Produits
           </button>
           <button
-            className={`px-4 py-2 rounded-full border w-[250px] text-center ${
+            className={`px-4 py-2 rounded-full border w-[250px] text-center transition duration-200 ease active:scale-[0.97] ${
               category === "Développement Web" ? "bg-white text-black" : ""
             }`}
             onClick={() => setCategory("Développement Web")}
@@ -80,7 +78,7 @@ export default function Projects() {
             Développement Web
           </button>
           <button
-            className={`px-4 py-2 rounded-full border w-[250px] text-center ${
+            className={`px-4 py-2 rounded-full border w-[250px] text-center transition duration-200 ease active:scale-[0.97] ${
               category === "Graphisme & UX/UI" ? "bg-white text-black" : ""
             }`}
             onClick={() => setCategory("Graphisme & UX/UI")}
@@ -127,7 +125,7 @@ export default function Projects() {
                     </div>
 
                     <div>
-                      <p className="text-sm text-violet-300 mb-1 font-semibold">
+                      <p className="text-sm text-accent-300 mb-1 font-semibold">
                         Technologies utilisées :
                       </p>
                       <ul className="list-disc ml-5 text-sm text-white mb-4">
@@ -141,7 +139,7 @@ export default function Projects() {
                           href={project.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-block bg-violet-400 text-black px-6 py-2 rounded-full hover:bg-violet-300 transition"
+                          className="inline-block bg-accent-400 text-black px-6 py-2 rounded-full hover:bg-accent-300 transition duration-200 ease active:scale-[0.97]"
                         >
                           En savoir plus
                         </a>
@@ -154,10 +152,10 @@ export default function Projects() {
           </Swiper>
 
           {/* Flèches en dehors */}
-          <div className="custom-prev absolute -left-[6rem] top-1/2 -translate-y-1/2 z-50 cursor-pointer hover:scale-110 transition">
+          <div className="custom-prev absolute -left-[6rem] top-1/2 -translate-y-1/2 z-50 cursor-pointer transition-transform duration-200 ease-out-quint hover:scale-110 active:scale-95">
             <ChevronLeft className="text-white w-16 h-16" />
           </div>
-          <div className="custom-next absolute -right-[6rem] top-1/2 -translate-y-1/2 z-50 cursor-pointer hover:scale-110 transition">
+          <div className="custom-next absolute -right-[6rem] top-1/2 -translate-y-1/2 z-50 cursor-pointer transition-transform duration-200 ease-out-quint hover:scale-110 active:scale-95">
             <ChevronRight className="text-white w-16 h-16" />
           </div>
         </div>
@@ -205,7 +203,7 @@ export default function Projects() {
 
                     {/* Technologies */}
                     <div className="w-full text-sm text-white mb-5">
-                      <p className="text-violet-300 font-semibold mb-1">
+                      <p className="text-accent-300 font-semibold mb-1">
                         Technologies utilisées :
                       </p>
                       <ul className="list-disc list-inside">
@@ -221,7 +219,7 @@ export default function Projects() {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-violet-400 text-black font-semibold text-sm px-6 py-2 rounded-full hover:bg-violet-300 transition mx-auto block w-fit"
+                        className="bg-accent-400 text-black font-semibold text-sm px-6 py-2 rounded-full hover:bg-accent-300 transition duration-200 ease active:scale-[0.97] mx-auto block w-fit"
                       >
                         En savoir plus
                       </a>
@@ -232,10 +230,10 @@ export default function Projects() {
             </Swiper>
 
             {/* Flèches mobile */}
-            <div className="custom-prev-mobile absolute -left-[2rem] top-1/2 -translate-y-1/2 z-50 cursor-pointer hover:scale-110 transition">
+            <div className="custom-prev-mobile absolute -left-[2rem] top-1/2 -translate-y-1/2 z-50 cursor-pointer transition-transform duration-200 ease-out-quint hover:scale-110 active:scale-95">
               <ChevronLeft className="text-white w-7 h-7" />
             </div>
-            <div className="custom-next-mobile absolute -right-[2rem] top-1/2 -translate-y-1/2 z-50 cursor-pointer hover:scale-110 transition">
+            <div className="custom-next-mobile absolute -right-[2rem] top-1/2 -translate-y-1/2 z-50 cursor-pointer transition-transform duration-200 ease-out-quint hover:scale-110 active:scale-95">
               <ChevronRight className="text-white w-7 h-7" />
             </div>
           </div>

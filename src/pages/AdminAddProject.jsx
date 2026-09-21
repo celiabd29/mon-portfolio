@@ -101,7 +101,7 @@ export default function AdminAddProject() {
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-12">
-      <h1 className="text-4xl font-bold text-violet-400 mb-10">
+      <h1 className="text-4xl font-bold text-accent-400 mb-10">
         Ajouter un projet
       </h1>
 
@@ -166,7 +166,7 @@ export default function AdminAddProject() {
 
         <button
           type="submit"
-          className="w-full py-3 bg-violet-400 text-black font-semibold rounded-full hover:bg-violet-300 transition"
+          className="w-full py-3 bg-accent-400 text-black font-semibold rounded-full hover:bg-accent-300 transition"
         >
           Ajouter le projet
         </button>
@@ -183,7 +183,7 @@ export default function AdminAddProject() {
             />
             <h3 className="text-xl font-semibold">{project.title}</h3>
             <p className="text-gray-400 text-sm">{project.description}</p>
-            <p className="text-violet-400 mt-2 text-sm">
+            <p className="text-accent-400 mt-2 text-sm">
               {project.technologies}
             </p>
             <button

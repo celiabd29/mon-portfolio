@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
+import Reveal from "./Reveal";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -40,20 +41,15 @@ export default function Contact() {
   };
   return (
     <div className="bg-black text-white flex flex-col items-center justify-center px-4 bottom-30">
-      {/* Texte en fond "CONTACT" */}
-      <section id="contact">
-        <h2 className="relative text-center text-[3rem] md:text-8xl font-bold top-12 text-violet-400 opacity-30 md:top-16">
-          CONTACT
-        </h2>
-
+      <section id="contact" className="pt-24 md:pt-32">
         {/* Titre central */}
-        <div className="flex flex-col items-center">
-          <h2 className="text-3xl md:text-5xl tracking-wide font-medium">
+        <Reveal className="flex flex-col items-center">
+          <h2 className="text-4xl md:text-6xl tracking-wide font-semibold">
             CONTACTEZ-MOI
           </h2>
           <div className="border-b-2 border-white w-[9rem] mt-6"></div>
-        </div>
-        <p className="font-raleway text-white text-center mt-10 mb-10 mx-4">
+        </Reveal>
+        <p className="font-raleway text-white text-center mt-10 mb-10 mx-auto max-w-2xl px-4">
           En recherche d'une alternance Master IA/Data à partir de novembre
           2026. Ouverte aussi aux échanges freelance.
         </p>
@@ -70,7 +66,7 @@ export default function Contact() {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full my-2 px-5 py-3 pr-12 border border-white rounded-full bg-transparent text-white placeholder-gray-400 focus:outline-none"
+              className="w-full my-2 px-5 py-3 pr-12 border border-white rounded-full bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-accent-400 transition-colors duration-150 ease"
               required
             />
             <Icon
@@ -88,7 +84,7 @@ export default function Contact() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full my-2 px-5 py-3 pr-12 border border-white rounded-full bg-transparent text-white placeholder-gray-400 focus:outline-none"
+              className="w-full my-2 px-5 py-3 pr-12 border border-white rounded-full bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-accent-400 transition-colors duration-150 ease"
               required
             />
             <Icon
@@ -105,7 +101,7 @@ export default function Contact() {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              className="w-full my-2 px-5 py-3 pr-12 border border-white rounded-[40px] bg-transparent text-white placeholder-gray-400 focus:outline-none h-28 resize-none"
+              className="w-full my-2 px-5 py-3 pr-12 border border-white rounded-[40px] bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-accent-400 transition-colors duration-150 ease h-28 resize-none"
               required
             ></textarea>
             <Icon
@@ -116,7 +112,7 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="w-full mb-6 my-2 py-3 bg-violet-400 text-black font-medium rounded-full hover:bg-violet-300 transition"
+            className="w-full mb-6 my-2 py-3 bg-accent-400 text-black font-medium rounded-full hover:bg-accent-300 transition duration-200 ease active:scale-[0.99]"
           >
             Envoyer
           </button>
@@ -126,26 +122,23 @@ export default function Contact() {
         </form>
       </section>
       {/* Section témoignages */}
-      <section id="testimonials" className="mt-4 mb-10">
-        <h2 className="relative text-center text-[3rem] md:text-8xl font-bold text-violet-400 opacity-30 md:top-16">
-          LES AVIS
-        </h2>
+      <section id="testimonials" className="mt-4 mb-10 pt-24 md:pt-32">
         <div className="flex flex-col items-center">
-          <h2 className="text-3xl md:text-5xl tracking-wide font-medium text-white">
+          <h2 className="text-4xl md:text-6xl tracking-wide font-semibold text-white">
             RECOMMANDATIONS
           </h2>
           <div className="border-b-2 border-white w-[12rem] mt-6"></div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-12">
-          <div className="max-w-md border border-white rounded-[30px] p-6 text-white bg-black/50 shadow-lg backdrop-blur-sm">
+          <div className="max-w-md border border-white/40 rounded-[30px] p-6 text-white bg-neutral-900 shadow-lg">
             <p className="italic text-md">
               “Célia s’impose comme une collaboratrice polyvalente. Son
               investissement total, sa flexibilité entre le front-end et le
               back-end, et son aptitude à relever des défis techniques en font
               un véritable couteau suisse du web.”
             </p>
-            <p className="mt-4 font-bold text-violet-300">
+            <p className="mt-4 font-bold text-accent-300">
               Calypso IMBERT, 10MentionWeb
             </p>
 
@@ -154,7 +147,7 @@ export default function Contact() {
                 href="/Lettre_de_recommandation_Celia_ABBAD.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white font-medium underline hover:text-violet-400 transition"
+                className="text-white font-medium underline hover:text-accent-400 transition"
               >
                 Voir la lettre de recommandation
               </a>
