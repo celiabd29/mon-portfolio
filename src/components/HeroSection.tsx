@@ -1,150 +1,146 @@
 import React, { useState } from "react";
-import { Menu, X, Linkedin, Github, Download } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Mascot from "./Mascot";
+
+const NAV = [
+  { href: "#presentation", label: "Présentation" },
+  { href: "#competences", label: "Compétences" },
+  { href: "#projets", label: "Projets" },
+  { href: "#contact", label: "Contact" },
+];
 
 export default function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const handleCloseMenu = () => setMenuOpen(false);
 
   return (
-    <div className="bg-black text-white relative">
-      {/* Background Icons as Images */}
-      <img
-        src="/icons/react-brands.svg"
-        alt="React"
-        className="absolute top-28 left-8 w-auto h-30 md:h-[8rem] md:left-2/3 md:top-[7rem]"
-      />
-      <img
-        src="/icons/python-brands(1).svg"
-        alt="Python Icon"
-        className="absolute top-1/3 right-5 w-auto h-40 md:h-[12rem] md:left-[12rem] md:top-1/3"
-      />
-      <img
-        src="/icons/node-brands.svg"
-        alt="Node Icon"
-        className="absolute top-3/4 left-1/4 w-auto h-30 md:h-[6rem] md:left-1/3 md:top-3/4"
-      />
+    <div className="relative">
+      <div className="mx-auto max-w-6xl px-5 pt-4 pb-16 md:pb-24">
+        {/* Nav flottante en pilule */}
+        <header className="sticky top-4 z-50">
+          <nav className="flex items-center justify-between gap-4 rounded-full border border-white/80 bg-white/70 px-3 py-2.5 pl-5 shadow-[0_12px_30px_-18px_rgba(28,46,74,0.5)] backdrop-blur-md">
+            <a href="#top" className="flex items-center gap-2.5">
+              <span className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-clay-2 to-ink text-[13px] font-extrabold text-white">
+                AC
+              </span>
+              <span className="font-display text-[17px] font-extrabold tracking-tight text-ink">
+                Célia Abbad
+              </span>
+            </a>
+            <div className="hidden items-center gap-7 text-[14.5px] font-medium text-muted md:flex">
+              {NAV.map((n) => (
+                <a key={n.href} href={n.href} className="transition-colors hover:text-ink">
+                  {n.label}
+                </a>
+              ))}
+            </div>
+            <div className="flex items-center gap-2">
+              <a
+                href="/CV_Celia_Abbad.pdf"
+                className="hidden rounded-full bg-ink px-4 py-2.5 text-[14px] font-semibold text-white transition hover:bg-ink/90 sm:inline-block"
+              >
+                Télécharger le CV
+              </a>
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Menu"
+                className="grid h-10 w-10 place-items-center rounded-full border border-line bg-white text-ink transition active:scale-90 md:hidden"
+              >
+                {menuOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </div>
+          </nav>
 
-      {/* Header */}
-      <header className="relative flex items-center justify-center p-6 bg-black fixed w-full z-50">
-        <nav className="hidden md:flex flex-1 justify-start gap-10 ml-6">
-          <a
-            href="#presentation"
-            className="text-white font-regular hover:text-gray-300 transition-colors duration-150 ease"
-          >
-            PRÉSENTATION
-          </a>
-          <a
-            href="#competences"
-            className="text-white font-regular hover:text-gray-300 transition-colors duration-150 ease"
-          >
-            COMPÉTENCES
-          </a>
-        </nav>
-        <div className="flex justify-center items-center w-full">
-          <img src="/logo-couleur.webp" alt="Logo" className="w-auto h-20" />
-        </div>
-        <nav className="hidden md:flex flex-1 justify-end gap-10 mr-6">
-          <a
-            href="#projets"
-            className="text-white font-regular hover:text-gray-300 transition-colors duration-150 ease"
-          >
-            PROJETS
-          </a>
-          <a
-            href="#contact"
-            className="text-white font-regular hover:text-gray-300 transition-colors duration-150 ease"
-          >
-            CONTACT
-          </a>
-          <a
-            href="/CV_Celia_Abbad.pdf"
-            className="text-white font-regular hover:text-gray-300 transition-colors duration-150 ease"
-          >
-            CV
-          </a>
-        </nav>
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-white ml-auto transition-transform duration-150 ease-out active:scale-90"
-        >
-          {menuOpen ? <X size={30} /> : <Menu size={30} />}
-        </button>
-      </header>
+          {menuOpen && (
+            <nav className="mt-2 flex flex-col gap-1 rounded-3xl border border-line bg-white p-3 text-center shadow-lg animate-fade-in md:hidden">
+              {NAV.map((n) => (
+                <a
+                  key={n.href}
+                  href={n.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-2xl px-4 py-3 text-lg font-medium text-ink hover:bg-ground"
+                >
+                  {n.label}
+                </a>
+              ))}
+              <a
+                href="/CV_Celia_Abbad.pdf"
+                onClick={() => setMenuOpen(false)}
+                className="mt-1 rounded-2xl bg-ink px-4 py-3 text-lg font-semibold text-white"
+              >
+                Télécharger le CV
+              </a>
+            </nav>
+          )}
+        </header>
 
-      {/* Menu */}
-      {menuOpen && (
-        <nav className="md:hidden absolute top-30 left-0 w-full bg-black p-4 flex flex-col gap-4 z-40 items-center text-center animate-fade-in">
-          <a href="#presentation" className="text-white text-lg">
-            Présentation
-          </a>
-          <a href="#competences" className="text-white text-lg">
-            Compétences
-          </a>
-          <a href="#projets" className="text-white text-lg">
-            Projets
-          </a>
-          <a href="#contact" className="text-white text-lg">
-            Contact
-          </a>
-          <a href="/CV_Celia_Abbad.pdf" className="text-white text-lg">
-            CV
-          </a>
-        </nav>
-      )}
-
-      {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center p-8 mt-[5rem]">
-        <div className="mx-auto w-full md:w-1/3 animate-fade-up">
-          <h2 className="text-6xl font-light md:text-start md:text-[5rem]">
-            CÉLIA
-          </h2>
-          <h2 className="text-6xl font-normal mb-4 md:text-end md:text-[5rem]">
-            ABBAD
-          </h2>
-        </div>
-
+        {/* Hero */}
         <section
-          style={{ animationDelay: "120ms" }}
-          className="flex flex-col md:flex-row items-center justify-center text-left p-6 md:items-start md:p-20 mt-18 md:mt-10 gap-6 md:gap-12 animate-fade-up"
+          id="top"
+          className="mt-12 grid items-center gap-6 md:mt-16 md:grid-cols-[1.05fr_0.95fr]"
         >
-          {/* Titre */}
-          <hr className="w-[4rem] border-t-1 my-2 md:hidden" />
-          <h1 className="font-raleway text-xl md:text-2xl font-semibold">
-            Développeuse IA & Data <br />en alternance
-          </h1>
+          <div className="animate-fade-up">
+            <span className="inline-flex items-center gap-2.5 rounded-full border border-line bg-surface px-3.5 py-1.5 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-muted">
+              <span className="h-2 w-2 rounded-full bg-accent shadow-[0_0_0_4px_rgba(245,113,78,0.18)]" />
+              Développeuse IA &amp; Data · Alternance 2026
+            </span>
+            <h1 className="mt-5 font-display text-[clamp(3rem,8.5vw,5.4rem)] font-extrabold leading-[0.94] tracking-[-0.03em] text-balance">
+              De l'IA.
+              <br />
+              <span className="text-accent">Des résultats.</span>
+            </h1>
+            <p className="mt-5 max-w-[34ch] text-[clamp(1.02rem,1.5vw,1.16rem)] leading-relaxed text-muted">
+              Je conçois des produits autour des <b className="font-semibold text-ink">LLM</b>{" "}
+              (Claude, GPT, LangChain, vector stores) et j'automatise des process
+              avec <b className="font-semibold text-ink">n8n</b>, de l'idée jusqu'à
+              la QA. Des solutions concrètes et mesurables.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a
+                href="#projets"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_14px_28px_-12px_rgba(245,113,78,0.7)] transition hover:brightness-105 active:scale-[0.98]"
+              >
+                Voir mes projets →
+              </a>
+              <a
+                href="/CV_Celia_Abbad.pdf"
+                className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-6 py-3.5 text-[15px] font-semibold text-ink transition hover:border-clay-2 active:scale-[0.98]"
+              >
+                Télécharger le CV
+              </a>
+            </div>
+            <div className="mt-8 flex flex-wrap items-center gap-3 text-[13.5px] font-medium text-muted">
+              <span>Stack&nbsp;:</span>
+              {["LangChain", "Claude / LLM", "n8n", "Vector stores"].map((t) => (
+                <span
+                  key={t}
+                  className="rounded-lg border border-line bg-surface px-2.5 py-1.5 text-[12.5px] font-semibold text-ink"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
 
-          {/* Séparateur */}
-          <span className="hidden md:block h-[6rem] border-l border-gray-400"></span>
-
-          {/* Texte */}
-          <p className="font-raleway text-center text-md md:text-lg md:text-start md:max-w-lg">
-            Étudiante en informatique, je recherche une alternance Master IA &
-            Data à partir de novembre 2026, pour construire des solutions
-            concrètes et mesurables.
-          </p>
+          {/* Stage perso */}
+          <div className="relative -order-1 grid min-h-[340px] place-items-center md:order-none md:min-h-[420px]">
+            <div className="absolute left-[2%] top-[4%] flex items-center gap-2.5 rounded-2xl border border-line bg-surface px-3 py-2.5 text-[12.5px] font-semibold shadow-[0_18px_34px_-20px_rgba(28,46,74,0.5)]">
+              <span className="h-2.5 w-2.5 rounded-sm bg-accent" />
+              A/B testing&nbsp;: +18%
+            </div>
+            <div className="absolute bottom-[6%] right-[1%] flex items-center gap-2.5 rounded-2xl border border-line bg-surface px-3 py-2.5 text-[12.5px] font-semibold shadow-[0_18px_34px_-20px_rgba(28,46,74,0.5)]">
+              <span className="flex h-[18px] items-end gap-[3px]">
+                <i className="block w-1 rounded-sm bg-accent" style={{ height: "40%" }} />
+                <i className="block w-1 rounded-sm bg-accent" style={{ height: "70%" }} />
+                <i className="block w-1 rounded-sm bg-accent" style={{ height: "55%" }} />
+                <i className="block w-1 rounded-sm bg-accent" style={{ height: "100%" }} />
+              </span>
+              17 cas d'usage
+            </div>
+            <div className="animate-float">
+              <Mascot className="w-[min(360px,74vw)] drop-shadow-[24px_40px_60px_rgba(28,46,74,0.4)]" />
+            </div>
+          </div>
         </section>
-      </section>
-
-      {/* Barre sticky en bas */}
-      <div className="bottom-0 w-full bg-indigo-400 p-4 flex justify-center gap-6 Z-20">
-        <a
-          href="https://www.linkedin.com/in/c%C3%A9lia-abbad-13801829a/"
-          className="text-white inline-block transition-transform duration-200 ease-out-quint hover:scale-110 active:scale-95"
-        >
-          <Linkedin size={24} />
-        </a>
-        <a
-          href="https://github.com/celiabd29/"
-          className="text-white ml-4 mr-4 inline-block transition-transform duration-200 ease-out-quint hover:scale-110 active:scale-95"
-        >
-          <Github size={24} />
-        </a>
-        <a
-          href="/CV_Celia_Abbad.pdf"
-          className="text-white inline-block transition-transform duration-200 ease-out-quint hover:scale-110 active:scale-95"
-        >
-          <Download size={24} />
-        </a>
       </div>
     </div>
   );

@@ -1,17 +1,17 @@
-import { FaLinkedin, FaGithub } from "react-icons/fa";
 import React from "react";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white px-6 py-8 border-t border-white mt-12">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between max-w-6xl mx-auto space-y-6 md:space-y-0">
-        {/* Réseaux sociaux */}
-        <div className="flex justify-center space-x-6 md:justify-start">
+    <footer className="mt-24 border-t border-line">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-5 py-10 md:flex-row md:justify-between md:gap-0">
+        <div className="flex items-center gap-5">
           <a
             href="https://www.linkedin.com/in/c%C3%A9lia-abbad-13801829a/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white text-2xl inline-block hover:text-accent-300 transition duration-200 ease hover:scale-110 active:scale-95"
+            aria-label="LinkedIn"
+            className="text-2xl text-muted transition duration-200 hover:-translate-y-0.5 hover:text-accent"
           >
             <FaLinkedin />
           </a>
@@ -19,41 +19,33 @@ export default function Footer() {
             href="https://github.com/celiabd29"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white text-2xl inline-block hover:text-accent-300 transition duration-200 ease hover:scale-110 active:scale-95"
+            aria-label="GitHub"
+            className="text-2xl text-muted transition duration-200 hover:-translate-y-0.5 hover:text-accent"
           >
             <FaGithub />
           </a>
         </div>
 
-        {/* Logo au centre */}
-        <div className="flex justify-center md:ml-[7rem]">
-          <img
-            src="/logo-couleur.webp"
-            alt="Logo"
-            className="h-16 w-auto md:h-20"
-          />
-        </div>
+        <a href="#top" className="flex items-center gap-2.5">
+          <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-clay-2 to-ink text-[13px] font-extrabold text-white">
+            AC
+          </span>
+          <span className="font-display text-lg font-extrabold tracking-tight text-ink">
+            Célia Abbad
+          </span>
+        </a>
 
-        {/* Mentions légales à droite */}
-        <div className="flex flex-col items-center md:items-end text-sm space-y-1">
-          <a
-            href="/politique-de-confidentialite"
-            className="hover:text-accent-300 transition"
-          >
+        <div className="flex flex-col items-center gap-1 text-sm text-muted md:items-end">
+          <a href="/politique-de-confidentialite" className="transition hover:text-ink">
             Politique de confidentialité
           </a>
-          <a
-            href="/mentions-legales"
-            className="hover:text-accent-300 transition"
-          >
+          <a href="/mentions-legales" className="transition hover:text-ink">
             Mentions légales
           </a>
         </div>
       </div>
-
-      {/* Copyright en bas centré */}
-      <div className="mt-6 text-center text-xs text-gray-300">
-        © {new Date().getFullYear()} Célia ABBAD | Tous droits réservés
+      <div className="pb-8 text-center text-xs text-muted">
+        © {new Date().getFullYear()} Célia Abbad · Tous droits réservés
       </div>
     </footer>
   );

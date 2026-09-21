@@ -3,27 +3,20 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Reveal from "./Reveal";
 
-// Affiche l'image d'un projet en entier, sans coupe, quel que soit son
-// ratio (paysage ou portrait) : object-contain + centrage. Les zones vides
-// autour de l'image prennent le fond sombre du conteneur (défini sur le
-// conteneur, hauteur fixe) pour que le carousel reste visuellement stable.
+const CATEGORIES = ["IA & Produits", "Développement Web", "Graphisme & UX/UI"];
+
 function ProjectImage({ src, alt }) {
   return (
-    <img
-      src={src}
-      alt={alt}
-      className="w-full h-full object-contain object-center"
-    />
+    <img src={src} alt={alt} className="h-full w-full object-contain object-center" />
   );
 }
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
   const [category, setCategory] = useState("IA & Produits");
-  const [openDescriptionIndex, setOpenDescriptionIndex] = useState(null);
   const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
@@ -31,7 +24,6 @@ export default function Projects() {
       console.error("❌ VITE_API_URL est undefined !");
       return;
     }
-
     fetch(`${API_URL}/projects`)
       .then((res) => res.json())
       .then((data) => {
@@ -44,104 +36,86 @@ export default function Projects() {
         setProjects(formatted);
       })
       .catch((error) => console.error("❌ Erreur de fetch Projects :", error));
-  }, []);
+  }, [API_URL]);
 
   const filteredProjects = projects.filter(
     (project) => !category || project.category === category
   );
 
   return (
-    <div className="bg-black text-white flex flex-col items-center justify-center px-4 relative">
-      <section id="projets" className="pt-24 md:pt-32">
+    <div className="mx-auto flex max-w-6xl flex-col items-center px-5 text-ink">
+      <section id="projets" className="w-full pt-24 md:pt-32">
         <Reveal className="flex flex-col items-center">
-          <h2 className="text-4xl md:text-6xl tracking-wide font-semibold">
-            MES PROJETS
+          <h2 className="font-display text-4xl font-extrabold tracking-tight md:text-6xl">
+            Mes projets
           </h2>
-          <div className="border-b-2 border-white w-[9rem] mt-6 mb-10" />
+          <div className="mt-5 h-1 w-16 rounded-full bg-accent" />
         </Reveal>
+
         {/* Catégories */}
-        <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6 mt-6 mb-8">
-          <button
-            className={`px-4 py-2 rounded-full border w-[250px] text-center transition duration-200 ease active:scale-[0.97] ${
-              category === "IA & Produits" ? "bg-white text-black" : ""
-            }`}
-            onClick={() => setCategory("IA & Produits")}
-          >
-            IA & Produits
-          </button>
-          <button
-            className={`px-4 py-2 rounded-full border w-[250px] text-center transition duration-200 ease active:scale-[0.97] ${
-              category === "Développement Web" ? "bg-white text-black" : ""
-            }`}
-            onClick={() => setCategory("Développement Web")}
-          >
-            Développement Web
-          </button>
-          <button
-            className={`px-4 py-2 rounded-full border w-[250px] text-center transition duration-200 ease active:scale-[0.97] ${
-              category === "Graphisme & UX/UI" ? "bg-white text-black" : ""
-            }`}
-            onClick={() => setCategory("Graphisme & UX/UI")}
-          >
-            Graphisme & UX/UI
-          </button>
+        <div className="mt-10 flex flex-col items-center justify-center gap-3 md:flex-row md:gap-4">
+          {CATEGORIES.map((c) => (
+            <button
+              key={c}
+              onClick={() => setCategory(c)}
+              className={`w-[250px] rounded-full border px-4 py-2.5 text-center text-sm font-semibold transition duration-200 active:scale-[0.97] ${
+                category === c
+                  ? "border-ink bg-ink text-white shadow-[0_12px_26px_-14px_rgba(22,35,58,0.6)]"
+                  : "border-line bg-surface text-ink hover:border-clay-2"
+              }`}
+            >
+              {c}
+            </button>
+          ))}
         </div>
 
         {/* Carrousel Desktop */}
-        <div className="hidden md:block w-full max-w-6xl max-h-5xl relative">
+        <div className="relative mx-auto mt-12 hidden w-full max-w-5xl md:block">
           <Swiper
             modules={[Navigation, Pagination]}
-            navigation={{
-              nextEl: ".custom-next",
-              prevEl: ".custom-prev",
-            }}
-            className="w-full"
-            pagination={{
-              clickable: true,
-            }}
+            navigation={{ nextEl: ".custom-next", prevEl: ".custom-prev" }}
+            pagination={{ clickable: true }}
             spaceBetween={50}
             slidesPerView={1}
+            className="w-full pb-4"
           >
             {filteredProjects.map((project, index) => (
               <SwiperSlide key={index}>
-                <div className="flex items-center h-[480px] bg-[#121212] border border-white rounded-2xl p-6 space-x-10 shadow-lg">
-                  {/* Image du projet */}
-                  <div className="w-1/2 h-full border border-white rounded-xl overflow-hidden bg-[#121212]">
-                    <ProjectImage
-                      src={`${API_URL}/uploads/${project.image}`}
-                      alt={project.title}
-                    />
+                <div className="flex h-[480px] items-center gap-10 rounded-3xl border border-line bg-surface p-6 shadow-[0_30px_60px_-40px_rgba(28,46,74,0.5)]">
+                  <div className="h-full w-1/2 overflow-hidden rounded-2xl border border-line bg-ground">
+                    <ProjectImage src={`${API_URL}/uploads/${project.image}`} alt={project.title} />
                   </div>
-
-                  {/* Contenu du projet */}
-                  <div className="w-1/2 flex flex-col justify-between h-full">
+                  <div className="flex h-full w-1/2 flex-col justify-between">
                     <div>
-                      <h3 className="text-2xl font-bold mb-2 text-white">
+                      <h3 className="mb-2 font-display text-2xl font-bold tracking-tight">
                         {project.title}
                       </h3>
-                      <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                      <p className="mb-4 text-sm leading-relaxed text-muted">
                         {project.description}
                       </p>
                     </div>
-
                     <div>
-                      <p className="text-sm text-accent-300 mb-1 font-semibold">
-                        Technologies utilisées :
+                      <p className="mb-1 text-[11px] font-bold uppercase tracking-widest text-accent-ink">
+                        Technologies
                       </p>
-                      <ul className="list-disc ml-5 text-sm text-white mb-4">
+                      <ul className="mb-5 flex flex-wrap gap-2">
                         {project.technologies.map((tech, i) => (
-                          <li key={i}>{tech}</li>
+                          <li
+                            key={i}
+                            className="rounded-lg border border-line bg-ground px-2.5 py-1 text-xs font-semibold text-ink"
+                          >
+                            {tech}
+                          </li>
                         ))}
                       </ul>
-
                       {project.link && (
                         <a
                           href={project.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-block bg-accent-400 text-black px-6 py-2 rounded-full hover:bg-accent-300 transition duration-200 ease active:scale-[0.97]"
+                          className="inline-block rounded-full bg-accent px-6 py-2.5 text-sm font-semibold text-white transition duration-200 hover:brightness-105 active:scale-[0.97]"
                         >
-                          En savoir plus
+                          En savoir plus →
                         </a>
                       )}
                     </div>
@@ -151,25 +125,21 @@ export default function Projects() {
             ))}
           </Swiper>
 
-          {/* Flèches en dehors */}
-          <div className="custom-prev absolute -left-[6rem] top-1/2 -translate-y-1/2 z-50 cursor-pointer transition-transform duration-200 ease-out-quint hover:scale-110 active:scale-95">
-            <ChevronLeft className="text-white w-16 h-16" />
+          <div className="custom-prev absolute -left-16 top-1/2 z-50 -translate-y-1/2 cursor-pointer text-clay-3 transition-transform duration-200 ease-out-quint hover:scale-110 hover:text-ink active:scale-95">
+            <ChevronLeft className="h-12 w-12" />
           </div>
-          <div className="custom-next absolute -right-[6rem] top-1/2 -translate-y-1/2 z-50 cursor-pointer transition-transform duration-200 ease-out-quint hover:scale-110 active:scale-95">
-            <ChevronRight className="text-white w-16 h-16" />
+          <div className="custom-next absolute -right-16 top-1/2 z-50 -translate-y-1/2 cursor-pointer text-clay-3 transition-transform duration-200 ease-out-quint hover:scale-110 hover:text-ink active:scale-95">
+            <ChevronRight className="h-12 w-12" />
           </div>
         </div>
 
-        {/* Version Mobile : Carrousel Swiper */}
-        <div className="flex flex-col justify-center items-center text-white bg-black py-10">
-          <div className="md:hidden w-full relative max-w-md mx-auto">
+        {/* Mobile */}
+        <div className="flex flex-col items-center py-12 md:hidden">
+          <div className="relative mx-auto w-full max-w-md">
             <div className="swiper-pagination-mobile mb-4 flex justify-center space-x-2" />
             <Swiper
               modules={[Navigation, Pagination]}
-              navigation={{
-                nextEl: ".custom-next-mobile",
-                prevEl: ".custom-prev-mobile",
-              }}
+              navigation={{ nextEl: ".custom-next-mobile", prevEl: ".custom-prev-mobile" }}
               pagination={{
                 clickable: true,
                 el: ".swiper-pagination-mobile",
@@ -182,46 +152,37 @@ export default function Projects() {
             >
               {filteredProjects.map((project, index) => (
                 <SwiperSlide key={index}>
-                  <div className="bg-[#121212] border border-white rounded-2xl px-3 py-5 shadow-lg w-[87%] mx-auto">
-                    {/* Image */}
-                    <div className="w-full h-[220px] border border-white rounded-xl overflow-hidden mb-4 bg-[#121212]">
-                      <ProjectImage
-                        src={`${API_URL}/uploads/${project.image}`}
-                        alt={project.title}
-                      />
+                  <div className="mx-auto w-[88%] rounded-3xl border border-line bg-surface px-4 py-5 shadow-[0_24px_50px_-34px_rgba(28,46,74,0.5)]">
+                    <div className="mb-4 h-[220px] w-full overflow-hidden rounded-2xl border border-line bg-ground">
+                      <ProjectImage src={`${API_URL}/uploads/${project.image}`} alt={project.title} />
                     </div>
-
-                    {/* Titre */}
-                    <h3 className="text-base font-bold text-white text-center mb-2">
+                    <h3 className="mb-2 text-center font-display text-lg font-bold tracking-tight">
                       {project.title}
                     </h3>
-
-                    {/* Description */}
-                    <div className="text-sm leading-relaxed text-gray-100 mb-4">
+                    <p className="mb-4 text-sm leading-relaxed text-muted">
                       {project.description}
-                    </div>
-
-                    {/* Technologies */}
-                    <div className="w-full text-sm text-white mb-5">
-                      <p className="text-accent-300 font-semibold mb-1">
-                        Technologies utilisées :
-                      </p>
-                      <ul className="list-disc list-inside">
-                        {project.technologies.map((tech, i) => (
-                          <li key={i}>{tech}</li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Bouton */}
+                    </p>
+                    <p className="mb-1 text-[11px] font-bold uppercase tracking-widest text-accent-ink">
+                      Technologies
+                    </p>
+                    <ul className="mb-5 flex flex-wrap gap-2">
+                      {project.technologies.map((tech, i) => (
+                        <li
+                          key={i}
+                          className="rounded-lg border border-line bg-ground px-2.5 py-1 text-xs font-semibold text-ink"
+                        >
+                          {tech}
+                        </li>
+                      ))}
+                    </ul>
                     {project.link && (
                       <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-accent-400 text-black font-semibold text-sm px-6 py-2 rounded-full hover:bg-accent-300 transition duration-200 ease active:scale-[0.97] mx-auto block w-fit"
+                        className="mx-auto block w-fit rounded-full bg-accent px-6 py-2.5 text-sm font-semibold text-white transition duration-200 hover:brightness-105 active:scale-[0.97]"
                       >
-                        En savoir plus
+                        En savoir plus →
                       </a>
                     )}
                   </div>
@@ -229,12 +190,11 @@ export default function Projects() {
               ))}
             </Swiper>
 
-            {/* Flèches mobile */}
-            <div className="custom-prev-mobile absolute -left-[2rem] top-1/2 -translate-y-1/2 z-50 cursor-pointer transition-transform duration-200 ease-out-quint hover:scale-110 active:scale-95">
-              <ChevronLeft className="text-white w-7 h-7" />
+            <div className="custom-prev-mobile absolute -left-3 top-1/2 z-50 -translate-y-1/2 cursor-pointer text-clay-3 transition-transform duration-200 ease-out-quint hover:scale-110 active:scale-95">
+              <ChevronLeft className="h-7 w-7" />
             </div>
-            <div className="custom-next-mobile absolute -right-[2rem] top-1/2 -translate-y-1/2 z-50 cursor-pointer transition-transform duration-200 ease-out-quint hover:scale-110 active:scale-95">
-              <ChevronRight className="text-white w-7 h-7" />
+            <div className="custom-next-mobile absolute -right-3 top-1/2 z-50 -translate-y-1/2 cursor-pointer text-clay-3 transition-transform duration-200 ease-out-quint hover:scale-110 active:scale-95">
+              <ChevronRight className="h-7 w-7" />
             </div>
           </div>
         </div>

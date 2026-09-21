@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 
 const Home = () => {
   return (
-    <div className="bg-black min-h-screen w-full overflow-x-hidden">
+    <div className="min-h-screen w-full overflow-x-hidden text-ink">
       <HeroSection />
       <About />
       <Skills />
