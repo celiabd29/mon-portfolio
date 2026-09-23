@@ -16,6 +16,7 @@ const NOW = [
 
 const BEFORE = [
   { when: "2023 – 2026", what: "Bachelor Développement Web, Digital Campus Paris" },
+  { when: "Certif.", what: "FreeCodeCamp : certifications JavaScript, Python et React" },
   { when: "depuis 2022", what: "Freelance : sites TPE / PME, de la spec au déploiement" },
   { when: "2024", what: "Stage 10MentionWeb : WordPress, Divi, Gutenberg" },
   { when: "2024", what: "Stage Spacefoot : machine learning pour le tri d'images (Python)" },

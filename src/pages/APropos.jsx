@@ -27,6 +27,26 @@ export default function APropos() {
 
       <Competences />
       <Parcours />
+
+      <div className="mx-auto max-w-6xl px-5 text-ink">
+        <section className="pt-16 md:pt-20">
+          <Reveal className="flex flex-col items-center gap-4">
+            <span className="text-xs font-bold uppercase tracking-widest text-accent-ink">
+              Hors du code
+            </span>
+            <div className="flex flex-wrap justify-center gap-2">
+              {["Capoeira", "Lecture", "Voyage"].map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-line bg-surface px-4 py-1.5 text-sm font-medium text-muted"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </Reveal>
+        </section>
+      </div>
     </>
   );
 }

@@ -35,7 +35,7 @@ export default function LegalNotices() {
         <div className="mt-8 space-y-8">
           <Section title="1. Éditeur du site">
             <p><span className="font-semibold text-ink">Nom :</span> Célia Abbad</p>
-            <p><span className="font-semibold text-ink">Email :</span> contact@celia-abbad.com</p>
+            <p><span className="font-semibold text-ink">Email :</span> celia.abd29@gmail.com</p>
             <p>
               <span className="font-semibold text-ink">Site web :</span>{" "}
               <a

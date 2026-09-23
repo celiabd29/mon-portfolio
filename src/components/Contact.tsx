@@ -56,7 +56,8 @@ export default function Contact() {
           <div className="mt-5 h-1 w-16 rounded-full bg-accent" />
         </Reveal>
         <p className="mx-auto mt-8 mb-10 max-w-xl text-center text-muted">
-          En recherche d'une alternance de Master IA &amp; Cybersécurité. Ouverte
+          En recherche d'une alternance de Master IA &amp; Cybersécurité à partir
+          de septembre 2026 (4 jours en entreprise, 1 jour en formation). Ouverte
           aussi aux échanges freelance.
         </p>
 

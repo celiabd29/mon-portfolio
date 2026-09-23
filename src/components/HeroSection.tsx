@@ -23,7 +23,7 @@ export default function Hero() {
             Je code des automatisations IA qui tournent en{" "}
             <b className="font-semibold text-ink">production</b>. En alternance
             chez Chantelle Group (CRO et automatisation), je vise une alternance
-            de Master IA &amp; Cybersécurité.
+            de Master IA &amp; Cybersécurité dès septembre 2026.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link
@@ -56,7 +56,7 @@ export default function Hero() {
           <Robot3D className="h-[360px] w-full max-w-[460px] md:h-[460px]" />
           <div className="pointer-events-none absolute left-[2%] top-[4%] z-10 flex items-center gap-2.5 rounded-2xl border border-line bg-surface px-3 py-2.5 text-[12.5px] font-semibold shadow-[0_18px_34px_-20px_rgba(28,46,74,0.5)]">
             <span className="h-2.5 w-2.5 rounded-sm bg-accent" />
-            37 tests A/B terminés
+            38 tests A/B déployés
           </div>
           <div className="pointer-events-none absolute bottom-[6%] right-[1%] z-10 flex items-center gap-2.5 rounded-2xl border border-line bg-surface px-3 py-2.5 text-[12.5px] font-semibold shadow-[0_18px_34px_-20px_rgba(28,46,74,0.5)]">
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />

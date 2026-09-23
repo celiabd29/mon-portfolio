@@ -3,7 +3,7 @@ import Reveal from "./Reveal";
 
 const STATS = [
   { n: "68", label: "tests A/B dans le pipeline" },
-  { n: "37", label: "tests A/B terminés" },
+  { n: "38", label: "tests A/B déployés" },
   { n: "26", label: "idées en backlog" },
   { n: "4", label: "marques du groupe automatisées" },
 ];

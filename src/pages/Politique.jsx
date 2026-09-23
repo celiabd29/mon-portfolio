@@ -71,7 +71,7 @@ export default function PrivacyPolicy() {
             </ul>
             <p>
               Pour toute demande, contactez-nous à :{" "}
-              <strong className="font-semibold text-ink">contact@celia-abbad.com</strong>.
+              <strong className="font-semibold text-ink">celia.abd29@gmail.com</strong>.
             </p>
           </Section>
 
@@ -86,7 +86,7 @@ export default function PrivacyPolicy() {
             <p>
               Si vous avez des questions concernant cette politique, vous pouvez
               nous contacter à :{" "}
-              <strong className="font-semibold text-ink">contact@celia-abbad.com</strong>.
+              <strong className="font-semibold text-ink">celia.abd29@gmail.com</strong>.
             </p>
           </Section>
         </div>
