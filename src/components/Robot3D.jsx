@@ -1,7 +1,21 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { RoundedBox, Float, ContactShadows } from "@react-three/drei";
 import * as THREE from "three";
+import ErrorBoundary from "./ErrorBoundary";
+import MascotStatic from "./MascotStatic";
+
+function webglAvailable() {
+  try {
+    const c = document.createElement("canvas");
+    return !!(
+      window.WebGLRenderingContext &&
+      (c.getContext("webgl") || c.getContext("experimental-webgl"))
+    );
+  } catch {
+    return false;
+  }
+}
 
 const CLAY = "#c6d5e6";
 const CLAY_DARK = "#a7bdd4";
@@ -102,15 +116,26 @@ function Robot() {
 }
 
 export default function Robot3D({ className = "" }) {
-  return (
+  const [ok] = useState(() => webglAvailable());
+
+  const fallback = (
     <div className={className}>
-      <Canvas
-        dpr={[1, 2]}
-        shadows
-        camera={{ position: [0, 0.25, 5.4], fov: 32 }}
-        gl={{ alpha: true, antialias: true }}
-        style={{ background: "transparent" }}
-      >
+      <MascotStatic className="h-full w-full drop-shadow-[24px_40px_60px_rgba(28,46,74,0.4)]" />
+    </div>
+  );
+
+  if (!ok) return fallback;
+
+  return (
+    <ErrorBoundary fallback={fallback}>
+      <div className={className}>
+        <Canvas
+          dpr={[1, 2]}
+          shadows
+          camera={{ position: [0, 0.25, 5.4], fov: 32 }}
+          gl={{ alpha: true, antialias: true }}
+          style={{ background: "transparent" }}
+        >
         <ambientLight intensity={0.75} />
         <directionalLight position={[3.5, 5, 4]} intensity={1.4} castShadow shadow-mapSize={[1024, 1024]} />
         <pointLight position={[-4, 2, 3]} intensity={0.5} color="#dfe8f2" />
@@ -118,8 +143,9 @@ export default function Robot3D({ className = "" }) {
         <Float speed={2} rotationIntensity={0.25} floatIntensity={0.9}>
           <Robot />
         </Float>
-        <ContactShadows position={[0, -1.45, 0]} opacity={0.3} blur={2.8} scale={9} far={4} color="#16233a" />
-      </Canvas>
-    </div>
+          <ContactShadows position={[0, -1.45, 0]} opacity={0.3} blur={2.8} scale={9} far={4} color="#16233a" />
+        </Canvas>
+      </div>
+    </ErrorBoundary>
   );
 }
