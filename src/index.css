@@ -54,10 +54,19 @@ h3,
   }
 }
 
-/* Slides de meme hauteur : on laisse le wrapper (align-items: stretch par
-   defaut) etirer chaque slide sur la plus haute, et la carte remplit via h-full. */
+/* Slides de meme hauteur : le wrapper etire chaque slide sur la plus haute
+   (align-items: stretch), la slide devient un conteneur flex, et la carte
+   remplit toute la hauteur via h-full. !important pour battre la hauteur que
+   Swiper pose parfois en inline. */
+.swiper-wrapper {
+  align-items: stretch;
+}
 .swiper-slide {
-  height: auto;
+  height: auto !important;
+  display: flex;
+}
+.swiper-slide > * {
+  width: 100%;
 }
 
 /* Pagination carrousel (Swiper) */
