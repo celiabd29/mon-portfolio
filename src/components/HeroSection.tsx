@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Mascot from "./Mascot";
+import Robot3D from "./Robot3D";
 
 export default function Hero() {
   return (
@@ -52,17 +52,15 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative -order-1 grid min-h-[340px] place-items-center md:order-none md:min-h-[420px]">
-          <div className="absolute left-[2%] top-[4%] flex items-center gap-2.5 rounded-2xl border border-line bg-surface px-3 py-2.5 text-[12.5px] font-semibold shadow-[0_18px_34px_-20px_rgba(28,46,74,0.5)]">
+        <div className="relative -order-1 grid min-h-[360px] place-items-center md:order-none md:min-h-[460px]">
+          <Robot3D className="h-[360px] w-full max-w-[460px] md:h-[460px]" />
+          <div className="pointer-events-none absolute left-[2%] top-[4%] z-10 flex items-center gap-2.5 rounded-2xl border border-line bg-surface px-3 py-2.5 text-[12.5px] font-semibold shadow-[0_18px_34px_-20px_rgba(28,46,74,0.5)]">
             <span className="h-2.5 w-2.5 rounded-sm bg-accent" />
             37 tests A/B terminés
           </div>
-          <div className="absolute bottom-[6%] right-[1%] flex items-center gap-2.5 rounded-2xl border border-line bg-surface px-3 py-2.5 text-[12.5px] font-semibold shadow-[0_18px_34px_-20px_rgba(28,46,74,0.5)]">
+          <div className="pointer-events-none absolute bottom-[6%] right-[1%] z-10 flex items-center gap-2.5 rounded-2xl border border-line bg-surface px-3 py-2.5 text-[12.5px] font-semibold shadow-[0_18px_34px_-20px_rgba(28,46,74,0.5)]">
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
             En prod sur 3 sites du groupe
-          </div>
-          <div className="animate-float">
-            <Mascot className="w-[min(360px,74vw)] drop-shadow-[24px_40px_60px_rgba(28,46,74,0.4)]" />
           </div>
         </div>
       </section>
