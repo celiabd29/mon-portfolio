@@ -80,7 +80,7 @@ export default function Projects() {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-5 inline-block w-fit rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white transition hover:brightness-105 active:scale-[0.97]"
+                      className="mt-auto w-fit rounded-full bg-accent px-5 py-2 pt-2 text-sm font-semibold text-white transition hover:brightness-105 active:scale-[0.97]"
                     >
                       En savoir plus →
                     </a>
