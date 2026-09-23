@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 export default function Footer() {
@@ -26,22 +27,22 @@ export default function Footer() {
           </a>
         </div>
 
-        <a href="#top" className="flex items-center gap-2.5">
+        <Link to="/" className="flex items-center gap-2.5">
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-clay-2 to-ink text-[13px] font-extrabold text-white">
             AC
           </span>
           <span className="font-display text-lg font-extrabold tracking-tight text-ink">
             Célia Abbad
           </span>
-        </a>
+        </Link>
 
         <div className="flex flex-col items-center gap-1 text-sm text-muted md:items-end">
-          <a href="/politique-de-confidentialite" className="transition hover:text-ink">
+          <Link to="/politique-de-confidentialite" className="transition hover:text-ink">
             Politique de confidentialité
-          </a>
-          <a href="/mentions-legales" className="transition hover:text-ink">
+          </Link>
+          <Link to="/mentions-legales" className="transition hover:text-ink">
             Mentions légales
-          </a>
+          </Link>
         </div>
       </div>
       <div className="pb-8 text-center text-xs text-muted">

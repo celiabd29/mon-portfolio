@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Reveal from "./Reveal";
 
-// Projets deja mis en avant en dur dans ProjectsFeatured : on les exclut de la
-// liste dynamique pour eviter les doublons.
+// Projets deja mis en avant en dur dans ProjectsFeatured : on les exclut.
 const FEATURED = ["mania", "prospecteur", "urbanflow"];
 
-function ProjectImage({ src, alt }) {
-  return <img src={src} alt={alt} className="h-full w-full object-contain object-center" />;
+function hostOf(url) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return "";
+  }
 }
 
 export default function Projects() {
@@ -22,15 +21,7 @@ export default function Projects() {
     if (!API_URL) return;
     fetch(`${API_URL}/projects`)
       .then((res) => res.json())
-      .then((data) => {
-        const formatted = data.map((p) => ({
-          ...p,
-          technologies: Array.isArray(p.technologies)
-            ? p.technologies
-            : p.technologies.split(",").map((t) => t.trim()),
-        }));
-        setProjects(formatted);
-      })
+      .then((data) => setProjects(data))
       .catch((error) => console.error("❌ Erreur de fetch Projects :", error));
   }, [API_URL]);
 
@@ -41,61 +32,68 @@ export default function Projects() {
   if (others.length === 0) return null;
 
   return (
-    <div className="mx-auto flex max-w-6xl flex-col items-center px-5 text-ink">
-      <section id="autres-projets" className="w-full pt-24 md:pt-32">
+    <div className="mx-auto max-w-6xl px-5 text-ink">
+      <section id="autres-projets" className="pt-24 md:pt-32">
         <Reveal className="flex flex-col items-center">
           <h2 className="font-display text-3xl font-extrabold tracking-tight md:text-4xl">
             Autres projets
           </h2>
           <div className="mt-5 h-1 w-16 rounded-full bg-accent" />
+          <p className="mt-6 max-w-xl text-center text-muted">
+            Quelques sites clients conçus en freelance, sous WordPress (Full Site
+            Editing).
+          </p>
         </Reveal>
 
-        <div className="relative mx-auto mt-10 w-full max-w-5xl">
-          <Swiper
-            modules={[Navigation, Pagination]}
-            navigation={{ nextEl: ".custom-next", prevEl: ".custom-prev" }}
-            pagination={{ clickable: true }}
-            spaceBetween={40}
-            slidesPerView={1}
-            className="w-full pb-4"
-            breakpoints={{ 768: { slidesPerView: 2 } }}
-          >
-            {others.map((project, index) => (
-              <SwiperSlide key={index}>
-                <div className="flex h-full flex-col rounded-3xl border border-line bg-surface p-5 shadow-[0_30px_60px_-40px_rgba(28,46,74,0.5)]">
-                  <div className="mb-4 h-44 w-full overflow-hidden rounded-2xl border border-line bg-ground">
-                    <ProjectImage src={`${API_URL}/uploads/${project.image}`} alt={project.title} />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {others.map((project, index) => {
+            const Card = project.link ? "a" : "div";
+            const props = project.link
+              ? { href: project.link, target: "_blank", rel: "noopener noreferrer" }
+              : {};
+            return (
+              <Reveal key={index}>
+                <Card
+                  {...props}
+                  className="group block overflow-hidden rounded-2xl border border-line bg-surface shadow-[0_20px_44px_-32px_rgba(28,46,74,0.5)] transition duration-300 hover:-translate-y-1 hover:border-clay-2 hover:shadow-[0_28px_56px_-30px_rgba(28,46,74,0.5)]"
+                >
+                  {/* Barre navigateur */}
+                  <div className="flex items-center gap-1.5 border-b border-line bg-ground px-3 py-2.5">
+                    <span className="h-2 w-2 rounded-full bg-clay-2" />
+                    <span className="h-2 w-2 rounded-full bg-clay-2" />
+                    <span className="h-2 w-2 rounded-full bg-clay-2" />
+                    {project.link && (
+                      <span className="ml-2 truncate text-[11px] font-medium text-muted">
+                        {hostOf(project.link)}
+                      </span>
+                    )}
                   </div>
-                  <h3 className="font-display text-lg font-bold tracking-tight">{project.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{project.description}</p>
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {project.technologies.map((tech, i) => (
-                      <li key={i} className="rounded-lg border border-line bg-ground px-2.5 py-1 text-xs font-semibold text-ink">
-                        {tech}
-                      </li>
-                    ))}
-                  </ul>
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-auto w-fit rounded-full bg-accent px-5 py-2 pt-2 text-sm font-semibold text-white transition hover:brightness-105 active:scale-[0.97]"
-                    >
-                      En savoir plus →
-                    </a>
-                  )}
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
 
-          <div className="custom-prev absolute -left-12 top-1/2 z-40 hidden -translate-y-1/2 cursor-pointer text-clay-3 transition hover:text-ink md:block">
-            <ChevronLeft className="h-9 w-9" />
-          </div>
-          <div className="custom-next absolute -right-12 top-1/2 z-40 hidden -translate-y-1/2 cursor-pointer text-clay-3 transition hover:text-ink md:block">
-            <ChevronRight className="h-9 w-9" />
-          </div>
+                  {/* Capture */}
+                  <div className="aspect-[16/10] w-full overflow-hidden bg-ground">
+                    <img
+                      src={`${API_URL}/uploads/${project.image}`}
+                      alt={project.title}
+                      loading="lazy"
+                      className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>
+
+                  {/* Pied */}
+                  <div className="flex items-center justify-between gap-2 px-4 py-3.5">
+                    <span className="font-display text-base font-bold tracking-tight">
+                      {project.title}
+                    </span>
+                    {project.link && (
+                      <span className="inline-flex items-center gap-1 text-sm font-semibold text-accent-ink transition group-hover:gap-1.5">
+                        Voir le site <ArrowUpRight size={15} />
+                      </span>
+                    )}
+                  </div>
+                </Card>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
     </div>

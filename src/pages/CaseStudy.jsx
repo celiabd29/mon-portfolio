@@ -102,7 +102,7 @@ export default function CaseStudy() {
   return (
     <div className="min-h-screen text-ink">
       <div className="mx-auto max-w-3xl px-5 py-14">
-        <Link to="/#projets" className="inline-flex items-center gap-2 text-sm font-semibold text-muted transition hover:text-ink">
+        <Link to="/projets" className="inline-flex items-center gap-2 text-sm font-semibold text-muted transition hover:text-ink">
           <ArrowLeft size={16} /> Retour aux projets
         </Link>
 
@@ -130,7 +130,7 @@ export default function CaseStudy() {
         </div>
 
         <Link
-          to="/#contact"
+          to="/contact"
           className="mt-12 inline-block rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-[0_14px_28px_-12px_rgba(245,113,78,0.7)] transition hover:brightness-105"
         >
           Me contacter
