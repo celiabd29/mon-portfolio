@@ -36,6 +36,14 @@ export default function Reveal({
       return;
     }
 
+    // Deja dans le viewport au montage (au-dessus de la ligne de flottaison,
+    // ou apres un saut d'ancre) : on affiche tout de suite, pas d'attente.
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -47,7 +55,13 @@ export default function Reveal({
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+    // Filet de securite : rien ne reste invisible plus de 1,2 s, meme si
+    // l'observer ne se declenche pas (saut d'ancre, capture de miniature).
+    const failsafe = window.setTimeout(() => setVisible(true), 1200);
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(failsafe);
+    };
   }, []);
 
   return (

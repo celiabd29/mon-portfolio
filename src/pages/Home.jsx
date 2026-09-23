@@ -1,20 +1,22 @@
 import React from "react";
 import HeroSection from "../components/HeroSection";
-import Skills from "../components/Skills";
-import About from "../components/About";
+import ProjectsFeatured from "../components/ProjectsFeatured";
 import Projects from "../components/Projects";
+import Impact from "../components/Impact";
+import Competences from "../components/Competences";
+import Parcours from "../components/Parcours";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
-
-// import "../output.css";
 
 const Home = () => {
   return (
     <div className="min-h-screen w-full overflow-x-hidden text-ink">
       <HeroSection />
-      <About />
-      <Skills />
+      <ProjectsFeatured />
       <Projects />
+      <Impact />
+      <Competences />
+      <Parcours />
       <Contact />
       <Footer />
     </div>

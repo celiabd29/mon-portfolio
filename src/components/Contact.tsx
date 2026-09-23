@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
+import { FileText } from "lucide-react";
 import Reveal from "./Reveal";
+
+const REFERENCES = [
+  {
+    href: "/Lettre_de_recommandation_Celia_ABBAD.pdf",
+    label: "Lettre de recommandation",
+    who: "Calypso Imbert · 10MentionWeb",
+  },
+];
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -47,33 +56,27 @@ export default function Contact() {
           <div className="mt-5 h-1 w-16 rounded-full bg-accent" />
         </Reveal>
         <p className="mx-auto mt-8 mb-10 max-w-xl text-center text-muted">
-          En recherche d'une alternance Master IA / Data à partir de novembre
-          2026. Ouverte aussi aux échanges freelance.
+          En recherche d'une alternance de Master en IA. Ouverte aussi aux
+          échanges freelance.
         </p>
 
         <form
           onSubmit={handleSubmit}
           className="rounded-[30px] border border-line bg-surface p-6 shadow-[0_30px_60px_-40px_rgba(28,46,74,0.5)] md:p-8"
         >
-          <label htmlFor="name" className="ml-4 text-sm font-medium text-ink">
-            Nom
-          </label>
+          <label htmlFor="name" className="ml-4 text-sm font-medium text-ink">Nom</label>
           <div className="relative">
             <input id="name" type="text" name="name" value={formData.name} onChange={handleChange} className={field} required />
             <Icon icon="bx:user" className="absolute right-4 top-1/2 -translate-y-1/2 text-xl text-muted" />
           </div>
 
-          <label htmlFor="email" className="ml-4 mt-4 block text-sm font-medium text-ink">
-            Email
-          </label>
+          <label htmlFor="email" className="ml-4 mt-4 block text-sm font-medium text-ink">Email</label>
           <div className="relative">
             <input id="email" type="email" name="email" value={formData.email} onChange={handleChange} className={field} required />
             <Icon icon="mdi:email-outline" className="absolute right-4 top-1/2 -translate-y-1/2 text-xl text-muted" />
           </div>
 
-          <label htmlFor="message" className="ml-4 mt-4 block text-sm font-medium text-ink">
-            Message
-          </label>
+          <label htmlFor="message" className="ml-4 mt-4 block text-sm font-medium text-ink">Message</label>
           <div className="relative">
             <textarea id="message" name="message" value={formData.message} onChange={handleChange} className={`${field} h-28 resize-none rounded-[24px]`} required />
             <Icon icon="tabler:message" className="absolute right-4 top-6 -translate-y-1/2 text-xl text-muted" />
@@ -87,38 +90,25 @@ export default function Contact() {
           </button>
           {response && <p className="mt-3 text-center text-sm font-medium text-muted">{response}</p>}
         </form>
-      </section>
 
-      {/* Recommandations */}
-      <section id="testimonials" className="w-full pt-24 md:pt-32">
-        <Reveal className="flex flex-col items-center">
-          <h2 className="font-display text-4xl font-extrabold tracking-tight md:text-6xl">
-            Recommandations
-          </h2>
-          <div className="mt-5 h-1 w-16 rounded-full bg-accent" />
-        </Reveal>
-
-        <div className="mt-12 flex justify-center">
-          <div className="max-w-md rounded-[30px] border border-line bg-surface p-7 shadow-[0_30px_60px_-40px_rgba(28,46,74,0.5)]">
-            <Icon icon="mingcute:quote-left-fill" className="text-3xl text-accent/70" />
-            <p className="mt-3 italic leading-relaxed text-muted">
-              Célia s'impose comme une collaboratrice polyvalente. Son
-              investissement total, sa flexibilité entre le front-end et le
-              back-end, et son aptitude à relever des défis techniques en font un
-              véritable couteau suisse du web.
-            </p>
-            <p className="mt-4 font-bold text-ink">
-              Calypso Imbert <span className="font-medium text-muted">· 10MentionWeb</span>
-            </p>
+        {/* Références */}
+        <div className="mt-10 flex flex-col items-center gap-3">
+          <span className="text-xs font-bold uppercase tracking-widest text-muted">Références</span>
+          {REFERENCES.map((r) => (
             <a
-              href="/Lettre_de_recommandation_Celia_ABBAD.pdf"
+              key={r.href}
+              href={r.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-block font-semibold text-accent-ink underline decoration-accent/40 underline-offset-4 transition hover:decoration-accent"
+              className="flex items-center gap-3 rounded-2xl border border-line bg-surface px-5 py-3 text-left transition hover:border-clay-2"
             >
-              Voir la lettre de recommandation
+              <FileText size={18} className="shrink-0 text-accent" />
+              <span>
+                <span className="block text-sm font-semibold text-ink">{r.label}</span>
+                <span className="block text-xs text-muted">{r.who}</span>
+              </span>
             </a>
-          </div>
+          ))}
         </div>
       </section>
     </div>
