@@ -56,8 +56,8 @@ export default function Contact() {
           <div className="mt-5 h-1 w-16 rounded-full bg-accent" />
         </Reveal>
         <p className="mx-auto mt-8 mb-10 max-w-xl text-center text-muted">
-          En recherche d'une alternance de Master en IA. Ouverte aussi aux
-          échanges freelance.
+          En recherche d'une alternance de Master IA &amp; Cybersécurité. Ouverte
+          aussi aux échanges freelance.
         </p>
 
         <form

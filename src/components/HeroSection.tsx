@@ -23,7 +23,7 @@ export default function Hero() {
             Je code des automatisations IA qui tournent en{" "}
             <b className="font-semibold text-ink">production</b>. En alternance
             chez Chantelle Group (CRO et automatisation), je vise une alternance
-            de Master en IA.
+            de Master IA &amp; Cybersécurité.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link

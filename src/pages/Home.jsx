@@ -22,8 +22,8 @@ const Home = () => {
                 On échange ?
               </h2>
               <p className="max-w-md text-muted">
-                En recherche d'une alternance de Master en IA. Ouverte aussi aux
-                échanges freelance.
+                En recherche d'une alternance de Master IA &amp; Cybersécurité.
+                Ouverte aussi aux échanges freelance.
               </p>
               <Link
                 to="/contact"
