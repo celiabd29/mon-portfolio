@@ -7,22 +7,26 @@ const CASES = {
   mania: {
     title: "MANIA · le Prospecteur",
     tagline: "Prospection B2B assistée par IA",
-    tags: ["Projet perso · en équipe", "Next.js", "API Claude", "n8n"],
+    tags: ["Projet perso · en solo", "Next.js", "API Claude", "Supabase"],
     sections: [
       {
         h: "Contexte",
-        p: "Projet personnel mené en équipe. Une application Next.js de prospection B2B assistée par IA : elle analyse une entreprise cible et génère des messages de prospection multicanaux personnalisés, avec export PDF et PPTX.",
+        p: "Projet personnel, que j'ai conçu et développé seule, et qu'on utilise en équipe. Une application Next.js de prospection B2B assistée par IA : elle analyse une entreprise cible et génère des messages de prospection multicanaux personnalisés, avec export PDF et PPTX.",
       },
       {
         h: "Le problème",
         p: "Personnaliser la prospection B2B à l'échelle est lent et générique. Chaque message pertinent demande de comprendre l'entreprise cible et son secteur, un travail difficile à répéter à la main sur beaucoup de prospects.",
       },
       {
+        h: "Mon rôle",
+        p: "Seule sur tout : la conception, l'application Next.js, l'intégration des données Google Places, la génération par Claude, le stockage Supabase et les exports PDF et PPTX. Le reste de l'équipe se sert de l'outil.",
+      },
+      {
         h: "L'architecture",
-        p: "Le front et l'app tournent sur Next.js. L'API Claude analyse l'entreprise cible et rédige les messages. Un vector store contient un document de référence de 17 cas d'usage sectoriels, qui sert à adapter l'approche au secteur du prospect. Un workflow n8n (LEAD 2.0 customisé) orchestre la chaîne : Apify pour la collecte, un LLM pour le traitement, Gmail pour l'envoi. Les livrables s'exportent en PDF et PPTX.",
+        p: "L'application tourne sur Next.js. Les données de l'entreprise cible viennent de Google Places. L'API Claude fait l'analyse et rédige les messages personnalisés. Supabase stocke les prospects et l'état. Les livrables s'exportent en PDF et PPTX. Pas de vector store ni d'embeddings : les informations utiles (secteur, taille, activité) sont déjà structurées, donc je les récupère directement plutôt que de faire de la recherche sémantique.",
       },
     ],
-    pending: ["Mon rôle", "Les arbitrages techniques", "Ce que j'en retire"],
+    pending: ["Les arbitrages techniques", "Ce que j'en retire"],
   },
 };
 

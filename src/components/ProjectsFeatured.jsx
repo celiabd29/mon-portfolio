@@ -44,7 +44,7 @@ export default function ProjectsFeatured() {
           <Reveal className="md:col-span-2">
             <article className="rounded-3xl border border-line bg-surface p-7 shadow-[0_30px_60px_-40px_rgba(28,46,74,0.5)] md:p-9">
               <div className="flex flex-wrap items-center gap-3">
-                <Tag>Projet perso · en équipe</Tag>
+                <Tag>Projet perso · en solo</Tag>
                 <span className="text-xs font-semibold text-accent-ink">Étude de cas disponible</span>
               </div>
               <h3 className="mt-4 font-display text-2xl font-bold tracking-tight md:text-3xl">
@@ -52,11 +52,11 @@ export default function ProjectsFeatured() {
               </h3>
               <p className="mt-3 max-w-2xl leading-relaxed text-muted">
                 Application Next.js de prospection B2B assistée par IA. Elle
-                analyse une entreprise cible et génère des messages de prospection
-                multicanaux personnalisés, avec export PDF et PPTX. Un workflow
-                n8n orchestre la collecte, le traitement et l'envoi.
+                analyse une entreprise cible à partir des données Google Places et
+                génère avec Claude des messages de prospection multicanaux
+                personnalisés, avec export PDF et PPTX.
               </p>
-              <Stack items={["Next.js", "API Claude", "Vector store", "n8n", "Apify"]} />
+              <Stack items={["Next.js", "Google Places", "API Claude", "Supabase"]} />
               <Link
                 to="/projets/mania"
                 className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-ink/90 active:scale-[0.98]"

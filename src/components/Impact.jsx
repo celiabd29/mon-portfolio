@@ -6,7 +6,6 @@ const STATS = [
   { n: "37", label: "tests A/B terminés" },
   { n: "26", label: "idées en backlog" },
   { n: "4", label: "marques du groupe automatisées" },
-  { n: "17", label: "cas d'usage sectoriels (MANIA)" },
 ];
 
 export default function Impact() {
@@ -24,7 +23,7 @@ export default function Impact() {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-4">
           {STATS.map((s) => (
             <Reveal key={s.label}>
               <div className="flex h-full flex-col rounded-2xl border border-line bg-surface p-5 shadow-[0_20px_44px_-32px_rgba(28,46,74,0.5)]">
