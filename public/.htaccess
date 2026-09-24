@@ -1,0 +1,11 @@
+# SPA fallback (React Router) pour Apache / o2switch : toute URL inconnue
+# est servie par index.html pour que /projets, /a-propos, etc. fonctionnent
+# en acces direct et au rechargement.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
