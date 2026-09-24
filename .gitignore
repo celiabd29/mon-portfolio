@@ -26,3 +26,6 @@ dist-ssr
 
 # impeccable (design tooling)
 .impeccable/
+
+# On standardise sur npm (package-lock.json)
+pnpm-lock.yaml
