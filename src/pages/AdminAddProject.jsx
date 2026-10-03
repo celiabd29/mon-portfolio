@@ -10,7 +10,6 @@ export default function AdminAddProject() {
     image: null,
   });
   const [projects, setProjects] = useState([]);
-  const [editMode, setEditMode] = useState(false);
   const [editingId, setEditingId] = useState(null);
 
   const fetchProjects = async () => {
@@ -63,9 +62,8 @@ export default function AdminAddProject() {
         category: "",
         image: null,
       });
-      setEditMode(false);
       setEditingId(null);
-    } catch (err) {
+    } catch {
       alert("Erreur lors de l'envoi");
     }
   };
@@ -79,7 +77,7 @@ export default function AdminAddProject() {
       const result = await res.json();
       alert(result.message);
       fetchProjects();
-    } catch (err) {
+    } catch {
       alert("Erreur lors de la suppression");
     }
   };
