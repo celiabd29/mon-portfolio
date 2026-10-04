@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Bip from "./Bip";
+import BipSheet from "./BipSheet";
 
 export default function Hero() {
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const bipTriggerRef = useRef<HTMLButtonElement>(null);
+
+  const closeSheet = () => {
+    setSheetOpen(false);
+    // Rend le focus à Bip après la fermeture du panneau
+    bipTriggerRef.current?.focus();
+  };
+
   return (
     <div className="mx-auto max-w-6xl px-5">
       <section
@@ -10,6 +20,15 @@ export default function Hero() {
         className="mt-8 grid items-center gap-6 md:mt-12 md:grid-cols-[1.05fr_0.95fr]"
       >
         <div className="animate-fade-up">
+          {/* Bip replié — mobile uniquement, au-dessus du badge */}
+          <div className="mb-6 md:hidden">
+            <Bip
+              variant="compact"
+              triggerRef={bipTriggerRef}
+              onOpen={() => setSheetOpen(true)}
+            />
+          </div>
+
           <span className="inline-flex items-center gap-2.5 rounded-full border border-line bg-surface px-3.5 py-1.5 text-[13px] font-semibold text-muted">
             <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_0_4px_rgba(16,185,129,0.18)]" />
             Disponible pour une alternance dès octobre 2026
@@ -44,10 +63,18 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="relative grid place-items-center md:min-h-[520px]">
+        {/* Bip complet — desktop uniquement */}
+        <div className="relative hidden place-items-center md:grid md:min-h-[520px]">
           <Bip />
         </div>
       </section>
+
+      {/* Panneau mobile */}
+      {sheetOpen && (
+        <BipSheet onClose={closeSheet}>
+          <Bip variant="full" fill />
+        </BipSheet>
+      )}
     </div>
   );
 }

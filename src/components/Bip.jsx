@@ -4,6 +4,8 @@ import { ArrowUp } from "lucide-react";
 
 // Bip : la mascotte qui répond aux questions sur le parcours de Célia.
 // États : salut (une fois à l'arrivée) -> repos (boucle) -> reflechit -> parle -> repos
+// variant="full"    : version complète (bulle, vidéo, suggestions, champ) — desktop + panneau mobile
+// variant="compact" : version repliée (vidéo + bulle côte à côte, tappable) — hero mobile
 const CLIPS = {
   salut: { file: "bip-salut", loop: false, still: "robot-salut" },
   repos: { file: "bip-repos", loop: true, still: "robot-face" },
@@ -36,7 +38,13 @@ function useReducedMotion() {
   return reduced;
 }
 
-export default function Bip({ className = "" }) {
+export default function Bip({
+  className = "",
+  variant = "full",
+  fill = false,
+  onOpen,
+  triggerRef,
+}) {
   const reduced = useReducedMotion();
   const [state, setState] = useState("salut");
   const [text, setText] = useState("");
@@ -127,8 +135,80 @@ export default function Bip({ className = "" }) {
     });
   }
 
+  // La mascotte (vidéos ou image statique) — partagée entre les variantes
+  const mascot = reduced ? (
+    <img
+      src={`${BASE}${CLIPS[state].still}.png`}
+      alt=""
+      className="absolute inset-0 h-full w-full object-contain p-4"
+    />
+  ) : (
+    Object.entries(CLIPS).map(([key, clip]) => (
+      <video
+        key={key}
+        ref={(el) => (videos.current[key] = el)}
+        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
+          key === state ? "opacity-100" : "opacity-0"
+        }`}
+        muted
+        playsInline
+        preload="auto"
+        loop={clip.loop}
+        poster={key === "repos" ? `${BASE}bip-repos-poster.jpg` : undefined}
+        onEnded={key === "salut" ? () => setState("repos") : undefined}
+        disablePictureInPicture
+        tabIndex={-1}
+      >
+        <source src={`${BASE}${clip.file}.webm`} type="video/webm" />
+        <source src={`${BASE}${clip.file}.mp4`} type="video/mp4" />
+      </video>
+    ))
+  );
+
+  const maskStyle = {
+    WebkitMaskImage:
+      "radial-gradient(ellipse 50% 50% at 50% 50%, #000 82%, transparent 100%)",
+    maskImage:
+      "radial-gradient(ellipse 50% 50% at 50% 50%, #000 82%, transparent 100%)",
+  };
+
+  // ───────────────────────── Variante repliée (hero mobile) ─────────────────────────
+  if (variant === "compact") {
+    return (
+      <button
+        ref={triggerRef}
+        type="button"
+        onClick={onOpen}
+        aria-haspopup="dialog"
+        aria-label="Discuter avec Bip, l'assistant de Célia"
+        className={`flex w-full items-center gap-3 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${className}`}
+      >
+        <span
+          className="relative aspect-square w-[110px] shrink-0"
+          aria-hidden="true"
+          style={maskStyle}
+        >
+          {mascot}
+        </span>
+        <span className="relative flex-1 rounded-[18px] rounded-bl-md border border-line bg-surface px-4 py-3 text-[13.5px] leading-snug text-ink shadow-[0_14px_28px_-20px_rgba(28,46,74,0.5)]">
+          <span className="line-clamp-3">{text || GREETING}</span>
+          {/* pointe orientée vers Bip (à gauche) */}
+          <span
+            aria-hidden="true"
+            className="absolute -left-[6px] top-1/2 h-3 w-3 -translate-y-1/2 rotate-45 rounded-[2px] border-b border-l border-line bg-surface"
+          />
+        </span>
+      </button>
+    );
+  }
+
+  // ───────────────────────── Variante complète (desktop + panneau) ─────────────────────────
   return (
-    <div className={`flex w-full max-w-[400px] flex-col items-center gap-3 ${className}`}>
+    <div
+      className={`flex w-full max-w-[400px] flex-col items-center gap-3 ${
+        fill ? "h-full" : ""
+      } ${className}`}
+    >
       {/* Bulle */}
       <div className="relative w-full">
         <div
@@ -172,45 +252,15 @@ export default function Bip({ className = "" }) {
 
       {/* Bip */}
       <div
-        className="relative aspect-square w-[240px] md:w-[300px]"
+        className="relative aspect-square w-[140px] md:w-[300px]"
         aria-hidden="true"
-        style={{
-          WebkitMaskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, #000 82%, transparent 100%)",
-          maskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, #000 82%, transparent 100%)",
-        }}
+        style={maskStyle}
       >
-        {reduced ? (
-          <img
-            src={`${BASE}${CLIPS[state].still}.png`}
-            alt=""
-            className="absolute inset-0 h-full w-full object-contain p-6"
-          />
-        ) : (
-          Object.entries(CLIPS).map(([key, clip]) => (
-            <video
-              key={key}
-              ref={(el) => (videos.current[key] = el)}
-              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
-                key === state ? "opacity-100" : "opacity-0"
-              }`}
-              muted
-              playsInline
-              preload="auto"
-              loop={clip.loop}
-              poster={key === "repos" ? `${BASE}bip-repos-poster.jpg` : undefined}
-              onEnded={key === "salut" ? () => setState("repos") : undefined}
-              disablePictureInPicture
-              tabIndex={-1}
-            >
-              <source src={`${BASE}${clip.file}.webm`} type="video/webm" />
-              <source src={`${BASE}${clip.file}.mp4`} type="video/mp4" />
-            </video>
-          ))
-        )}
+        {mascot}
       </div>
 
-      {/* Suggestions (visibles quand on clique dans le champ) */}
-      {showSuggestions && !loading && (
+      {/* Suggestions : au focus du champ, ou d'emblée dans le panneau mobile */}
+      {(showSuggestions || (fill && !asked)) && !loading && (
         <div className="flex flex-wrap justify-center gap-2">
           {SUGGESTIONS.map((s) => (
             <button
@@ -228,7 +278,9 @@ export default function Bip({ className = "" }) {
 
       {/* Champ de question */}
       <form
-        className="flex w-full items-center gap-2 rounded-full border border-line bg-surface p-1.5 pl-5 shadow-[0_14px_28px_-18px_rgba(28,46,74,0.45)] focus-within:border-clay-2"
+        className={`flex w-full items-center gap-2 rounded-full border border-line bg-surface p-1.5 pl-5 shadow-[0_14px_28px_-18px_rgba(28,46,74,0.45)] focus-within:border-clay-2 ${
+          fill ? "mt-auto" : ""
+        }`}
         onSubmit={(e) => {
           e.preventDefault();
           ask(question);

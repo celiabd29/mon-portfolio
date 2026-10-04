@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
@@ -27,10 +28,8 @@ export default function Footer() {
           </a>
         </div>
 
-        <Link to="/" className="flex items-center gap-2.5">
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-clay-2 to-ink text-[13px] font-extrabold text-white">
-            AC
-          </span>
+        <Link to="/" className="flex items-center gap-2.5" aria-label="Célia Abbad — accueil">
+          <Logo className="h-8 w-auto" title="Célia Abbad" />
           <span className="font-display text-lg font-extrabold tracking-tight text-ink">
             Célia Abbad
           </span>

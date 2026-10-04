@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
+import Logo from "./Logo";
 
 const NAV = [
   { to: "/", label: "Accueil", end: true },
@@ -18,10 +19,8 @@ export default function Nav() {
   return (
     <header className="sticky top-4 z-50 mx-auto max-w-6xl px-5 pt-4">
       <nav className="flex items-center justify-between gap-4 rounded-full border border-white/80 bg-white/70 px-3 py-2.5 pl-5 shadow-[0_12px_30px_-18px_rgba(28,46,74,0.5)] backdrop-blur-md">
-        <Link to="/" className="flex items-center gap-2.5">
-          <span className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-clay-2 to-ink text-[13px] font-extrabold text-white">
-            AC
-          </span>
+        <Link to="/" className="flex items-center gap-2.5" aria-label="Célia Abbad — accueil">
+          <Logo className="h-8 w-auto" title="Célia Abbad" />
           <span className="font-display text-[17px] font-extrabold tracking-tight text-ink">
             Célia Abbad
           </span>
