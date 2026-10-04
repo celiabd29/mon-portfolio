@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { API, adminFetch } from "../lib/admin";
 
 export default function AdminMessages() {
   const [messages, setMessages] = useState([]);
 
   const fetchMessages = async () => {
     try {
-      const res = await fetch("http://localhost:4000/messages");
+      const res = await adminFetch(`${API}/messages`);
+      if (!res.ok) return;
       const data = await res.json();
       setMessages(data);
     } catch (error) {
@@ -19,7 +21,7 @@ export default function AdminMessages() {
 
   const markAsRead = async (id, isRead) => {
     try {
-      await fetch(`http://localhost:4000/messages/${id}/read`, {
+      await adminFetch(`${API}/messages/${id}/read`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ isRead }),
@@ -33,7 +35,7 @@ export default function AdminMessages() {
   const deleteMessage = async (id) => {
     if (!window.confirm("Supprimer ce message ?")) return;
     try {
-      await fetch(`http://localhost:4000/messages/${id}`, { method: "DELETE" });
+      await adminFetch(`${API}/messages/${id}`, { method: "DELETE" });
       fetchMessages();
     } catch (err) {
       console.error("❌ Erreur suppression :", err);

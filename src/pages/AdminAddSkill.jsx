@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { API, adminFetch } from "../lib/admin";
 
 export default function AdminAddSkill() {
   const [formData, setFormData] = useState({ name: "", category: "", image: null });
@@ -6,7 +7,7 @@ export default function AdminAddSkill() {
   const [editingId, setEditingId] = useState(null);
 
   const fetchSkills = async () => {
-    const res = await fetch("http://localhost:4000/skills");
+    const res = await fetch(`${API}/skills`);
     const data = await res.json();
     setSkills(data);
   };
@@ -32,10 +33,10 @@ export default function AdminAddSkill() {
       if (formData[key]) data.append(key, formData[key]);
     }
     const endpoint = editingId
-      ? `http://localhost:4000/skills/${editingId}`
-      : "http://localhost:4000/skills/add";
+      ? `${API}/skills/${editingId}`
+      : `${API}/skills/add`;
     const method = editingId ? "PUT" : "POST";
-    const res = await fetch(endpoint, { method, body: data });
+    const res = await adminFetch(endpoint, { method, body: data });
     const result = await res.json();
     alert(result.message || "Action réussie !");
     setFormData({ name: "", category: "", image: null });
@@ -45,7 +46,7 @@ export default function AdminAddSkill() {
 
   const deleteSkill = async (id) => {
     if (!window.confirm("Supprimer cette compétence ?")) return;
-    const res = await fetch(`http://localhost:4000/skills/${id}`, { method: "DELETE" });
+    const res = await adminFetch(`${API}/skills/${id}`, { method: "DELETE" });
     const result = await res.json();
     alert(result.message);
     fetchSkills();
@@ -80,7 +81,7 @@ export default function AdminAddSkill() {
       <div className="grid gap-6 md:grid-cols-3">
         {skills.map((skill) => (
           <div key={skill._id} className="flex flex-col items-center rounded-2xl border border-line bg-surface p-4 shadow-[0_20px_40px_-30px_rgba(28,46,74,0.5)]">
-            <img src={`http://localhost:4000/uploads/${skill.image}`} alt={skill.name} className="mb-3 h-16 w-16 object-contain" />
+            <img src={`${API}/uploads/${skill.image}`} alt={skill.name} className="mb-3 h-16 w-16 object-contain" />
             <h3 className="text-lg font-semibold">{skill.name}</h3>
             <p className="text-sm text-muted">{skill.category}</p>
             <div className="mt-4 flex gap-2">

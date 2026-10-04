@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { API, adminFetch } from "../lib/admin";
 
 export default function AdminAddProject() {
   const [formData, setFormData] = useState({
@@ -13,7 +14,7 @@ export default function AdminAddProject() {
   const [editingId, setEditingId] = useState(null);
 
   const fetchProjects = async () => {
-    const res = await fetch("https://portfolio-v2-nw18.onrender.com/projects");
+    const res = await fetch(`${API}/projects`);
     const data = await res.json();
     setProjects(data);
   };
@@ -47,10 +48,10 @@ export default function AdminAddProject() {
     }
     try {
       const endpoint = editingId
-        ? `https://portfolio-v2-nw18.onrender.com/projects/${editingId}`
-        : "https://portfolio-v2-nw18.onrender.com/projects/add";
+        ? `${API}/projects/${editingId}`
+        : `${API}/projects/add`;
       const method = editingId ? "PUT" : "POST";
-      const res = await fetch(endpoint, { method, body: data });
+      const res = await adminFetch(endpoint, { method, body: data });
       const result = await res.json();
       alert(result.message || "Action réussie !");
       fetchProjects();
@@ -71,7 +72,7 @@ export default function AdminAddProject() {
   const deleteProject = async (id) => {
     if (!window.confirm("Supprimer ce projet ?")) return;
     try {
-      const res = await fetch(`https://portfolio-v2-nw18.onrender.com/projects/${id}`, {
+      const res = await adminFetch(`${API}/projects/${id}`, {
         method: "DELETE",
       });
       const result = await res.json();
@@ -115,7 +116,7 @@ export default function AdminAddProject() {
         {projects.map((project) => (
           <div key={project._id} className="rounded-2xl border border-line bg-surface p-4 shadow-[0_20px_40px_-30px_rgba(28,46,74,0.5)]">
             <img
-              src={`https://portfolio-v2-nw18.onrender.com/uploads/${project.image}`}
+              src={`${API}/uploads/${project.image}`}
               alt={project.title}
               className="mb-3 h-40 w-full rounded-xl border border-line object-cover"
             />
