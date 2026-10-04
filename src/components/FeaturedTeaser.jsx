@@ -37,8 +37,8 @@ export default function FeaturedTeaser() {
           </h2>
           <div className="mt-5 h-1 w-16 rounded-full bg-accent" />
           <p className="mt-6 max-w-xl text-center text-muted">
-            De l'IA en production, de l'automatisation métier et du full-stack
-            livré de bout en bout.
+            De l'IA, de l'automatisation et du full-stack, en alternance, pour
+            des clients et pour mes propres projets.
           </p>
         </Reveal>
 

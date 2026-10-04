@@ -14,18 +14,21 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const linkClass = ({ isActive }) =>
-    `transition-colors ${isActive ? "text-ink" : "text-muted hover:text-ink"}`;
+    `rounded-full px-4 py-2 transition-colors ${
+      isActive ? "text-ink" : "text-muted hover:text-ink"
+    }`;
 
   return (
     <header className="sticky top-4 z-50 mx-auto max-w-6xl px-5 pt-4">
-      <nav className="flex items-center justify-between gap-4 rounded-full border border-white/80 bg-white/70 px-3 py-2.5 pl-5 shadow-[0_12px_30px_-18px_rgba(28,46,74,0.5)] backdrop-blur-md">
+      <nav className="flex items-center justify-between gap-4 rounded-full border border-white/80 bg-white/70 px-3 py-2.5 pl-5 shadow-[0_12px_30px_-18px_rgba(28,46,74,0.5)] backdrop-blur-md md:mx-auto md:w-fit md:justify-start md:gap-0 md:py-2 md:pl-3 md:pr-2">
         <Link to="/" className="flex items-center gap-2.5" aria-label="Célia Abbad — accueil">
           <Logo className="h-8 w-auto" title="Célia Abbad" />
           <span className="font-display text-[17px] font-extrabold tracking-tight text-ink">
             Célia Abbad
           </span>
         </Link>
-        <div className="hidden items-center gap-7 text-[14.5px] font-medium md:flex">
+        <span aria-hidden="true" className="mx-5 hidden h-6 w-px bg-line md:block" />
+        <div className="hidden items-center gap-2 text-[15px] font-medium md:flex">
           {NAV.map((n) => (
             <NavLink key={n.to} to={n.to} end={n.end} className={linkClass}>
               {n.label}

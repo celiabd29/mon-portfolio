@@ -33,9 +33,8 @@ export default function ProjectsFeatured() {
           </h2>
           <div className="mt-5 h-1 w-16 rounded-full bg-accent" />
           <p className="mt-6 max-w-xl text-center text-muted">
-            Trois projets qui montrent ce que je fais vraiment : de l'IA en
-            production, de l'automatisation métier et du full-stack livré de bout
-            en bout.
+            Trois projets qui montrent ce que je fais vraiment : de l'IA, de
+            l'automatisation métier et du full-stack livré de bout en bout.
           </p>
         </Reveal>
 
@@ -81,7 +80,7 @@ export default function ProjectsFeatured() {
               </p>
               <Stack items={["n8n", "Claude (skill QA)", "ABlyft / MCP", "GCP"]} />
               <p className="mt-auto pt-5 text-sm font-medium text-muted">
-                En production sur plusieurs sites e-commerce du groupe.
+                Déployé sur plusieurs sites e-commerce du groupe.
               </p>
             </article>
           </Reveal>

@@ -5,7 +5,7 @@ const GROUPS = [
   {
     title: "IA & automatisation",
     context:
-      "Mon cœur de métier. Je les assemble en automatisations qui tournent en production, chez Chantelle et sur MANIA.",
+      "Mon cœur de métier. Je les assemble en automatisations concrètes, chez Chantelle et sur MANIA.",
     items: [
       "API Claude",
       "Agents",
