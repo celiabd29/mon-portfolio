@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
@@ -14,6 +15,20 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 function App() {
+  // Réveille le backend Render (qui s'endort) au premier chargement de la session.
+  // Ping silencieux : on n'attend pas la réponse et on ignore les erreurs.
+  useEffect(() => {
+    try {
+      const base = import.meta.env.VITE_API_URL;
+      if (base && !sessionStorage.getItem("backend-wake")) {
+        sessionStorage.setItem("backend-wake", "1");
+        fetch(`${base}/health`, { cache: "no-store" }).catch(() => {});
+      }
+    } catch {
+      // sessionStorage indisponible (navigation privée, etc.) : on ignore
+    }
+  }, []);
+
   return (
     <Router>
       <Routes>

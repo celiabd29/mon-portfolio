@@ -39,14 +39,14 @@ const GROUPS = [
   {
     title: "Data & outils",
     context:
-      "Bases, conteneurs et déploiement, dont une plateforme interne sur Cloud Run.",
+      "Bases, conteneurs et déploiement, dont une plateforme interne déployée dans le cloud.",
     items: [
       "PostgreSQL",
       "Supabase",
       "MongoDB",
       "Docker",
       "Git",
-      "GCP / Cloud Run",
+      "GCP",
       "API REST",
       "Figma",
       "WordPress",

@@ -32,21 +32,13 @@ export default function Nav() {
             </NavLink>
           ))}
         </div>
-        <div className="flex items-center gap-2">
-          <a
-            href="/CV_Celia_Abbad.pdf"
-            className="hidden rounded-full bg-ink px-4 py-2.5 text-[14px] font-semibold text-white transition hover:bg-ink/90 sm:inline-block"
-          >
-            Télécharger le CV
-          </a>
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Menu"
-            className="grid h-10 w-10 place-items-center rounded-full border border-line bg-white text-ink transition active:scale-90 md:hidden"
-          >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Menu"
+          className="grid h-10 w-10 place-items-center rounded-full border border-line bg-white text-ink transition active:scale-90 md:hidden"
+        >
+          {menuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </nav>
 
       {menuOpen && (
@@ -62,13 +54,6 @@ export default function Nav() {
               {n.label}
             </NavLink>
           ))}
-          <a
-            href="/CV_Celia_Abbad.pdf"
-            onClick={() => setMenuOpen(false)}
-            className="mt-1 rounded-2xl bg-ink px-4 py-3 text-lg font-semibold text-white"
-          >
-            Télécharger le CV
-          </a>
         </nav>
       )}
     </header>

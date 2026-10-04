@@ -76,12 +76,12 @@ export default function ProjectsFeatured() {
               <p className="mt-3 leading-relaxed text-muted">
                 Un pipeline n8n déclenché par ClickUp qui génère le brief de
                 design, le code de la variante pour ABlyft et la checklist de QA,
-                plus une plateforme interne (Cloud Run) qui centralise idées,
-                tests en cours, tests terminés et apprentissages.
+                plus une plateforme interne qui centralise idées, tests en
+                cours, tests terminés et apprentissages.
               </p>
-              <Stack items={["n8n", "Claude (skill QA)", "ABlyft / MCP", "Cloud Run"]} />
+              <Stack items={["n8n", "Claude (skill QA)", "ABlyft / MCP", "GCP"]} />
               <p className="mt-auto pt-5 text-sm font-medium text-muted">
-                En production sur chantelle.com, darjeeling.fr et livera.nl.
+                En production sur plusieurs sites e-commerce du groupe.
               </p>
             </article>
           </Reveal>
