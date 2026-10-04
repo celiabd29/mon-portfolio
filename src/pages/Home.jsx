@@ -15,22 +15,12 @@ const Home = () => {
       <div className="mx-auto max-w-6xl px-5 text-ink">
         <section className="pt-24 md:pt-32">
           <Reveal>
-            <div className="grid items-center gap-8 md:grid-cols-[0.8fr_1.2fr]">
-              <div className="aspect-[4/5] w-full max-w-[300px] overflow-hidden rounded-[28px] bg-clay-1">
-                <img
-                  src="/celia.jpg"
-                  alt="Célia Abbad"
-                  className="h-full w-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.style.display = "none";
-                  }}
-                />
-              </div>
+            <div className="grid items-start gap-8 md:grid-cols-2">
               <div>
                 <h2 className="font-display text-3xl font-extrabold tracking-tight md:text-4xl">
                   Développeuse, côté produit
                 </h2>
-                <p className="mt-5 max-w-[54ch] leading-relaxed text-muted">
+                <p className="mt-5 max-w-[52ch] leading-relaxed text-muted">
                   J'aime construire des outils que les équipes utilisent
                   vraiment, tous les jours. Après mon Bachelor et une année
                   d'alternance chez Chantelle Group, je me spécialise dans l'IA
@@ -42,6 +32,27 @@ const Home = () => {
                 >
                   En savoir plus <ArrowRight size={16} />
                 </Link>
+              </div>
+
+              <div className="rounded-[28px] border border-line bg-surface p-6 shadow-[0_30px_60px_-40px_rgba(28,46,74,0.5)] md:p-8">
+                <h3 className="text-xs font-bold uppercase tracking-widest text-accent-ink">
+                  En ce moment
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {[
+                    "Mastère Tech Lead IA & Cybersécurité",
+                    "Certification Microsoft AI-103 en préparation",
+                    "À la recherche d'une alternance dès octobre 2026",
+                  ].map((line) => (
+                    <li
+                      key={line}
+                      className="flex items-start gap-2.5 text-[15px] leading-snug"
+                    >
+                      <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                      {line}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </Reveal>
