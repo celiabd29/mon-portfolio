@@ -11,6 +11,8 @@ import LegalNotices from "./pages/Mentions";
 import AdminAddProject from "./pages/AdminAddProject";
 import AdminAddSkill from "./pages/AdminAddSkill";
 import AdminMessage from "./pages/AdminMessage";
+import AdminLogin from "./pages/AdminLogin";
+import RequireAdmin from "./components/RequireAdmin";
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -44,9 +46,31 @@ function App() {
         {/* Pages autonomes */}
         <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />} />
         <Route path="/mentions-legales" element={<LegalNotices />} />
-        <Route path="/admin/projet" element={<AdminAddProject />} />
-        <Route path="/admin/skill" element={<AdminAddSkill />} />
-        <Route path="/admin/message" element={<AdminMessage />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route
+          path="/admin/projet"
+          element={
+            <RequireAdmin>
+              <AdminAddProject />
+            </RequireAdmin>
+          }
+        />
+        <Route
+          path="/admin/skill"
+          element={
+            <RequireAdmin>
+              <AdminAddSkill />
+            </RequireAdmin>
+          }
+        />
+        <Route
+          path="/admin/message"
+          element={
+            <RequireAdmin>
+              <AdminMessage />
+            </RequireAdmin>
+          }
+        />
       </Routes>
     </Router>
   );
